@@ -1,0 +1,144 @@
+.profile{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile__area{
+    display: grid;
+    grid-template-columns: auto auto 1fr 1fr;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    align-items: center
+}
+
+.profile__avatar{
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 70px;
+    grid-column: 1;
+}
+
+.profile__info{
+    grid-column: 2;
+    display: grid;
+    gap: 18px;
+    align-items: center
+}
+
+.profile__name{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 2.625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 114.286%;
+    grid-column: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 373px;
+    margin: 0;
+}
+
+.profile__description{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    grid-row: 2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 415px;
+    margin: 0;
+}
+
+.button__profile-edit{
+    background: #000;
+    background-image: url(/vendor/images/comprimir/EditButton.png);
+    background-size: cover;
+    cursor: pointer;
+    color: #FFF;
+    border: 1px solid #FFF;
+    grid-column: 2;
+    width: 24px;
+    height: 24px;
+}
+
+.button__profile-edit_photo {
+    background:#000;
+    font-size: 40px;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #FFF;
+    color: #FFF;
+    width: 150px;
+    height: 50px;
+    grid-column: 4;
+}
+
+@media screen and (max-width: 760px){
+    .profile__area{
+        gap: 20px;
+    }
+
+    .profile__avatar{
+        margin-left: 10px;
+    }
+    .button__profile-edit{
+        width: 30px;
+        height: 30px;
+    }
+
+    .button__profile-edit_photo{
+        margin-right: 10px; 
+    }
+}
+
+@media screen and (max-width: 560px){
+    .profile__area{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .profile__avatar{
+        margin-left: 0;
+    }
+
+    .profile__info{
+        margin-top: 26px;
+        gap: 14px;
+        justify-items: center;
+    }
+
+    .profile__name{
+        max-width: 273px;
+
+    }
+
+    .profile__description{
+        margin-left: 50px;
+        max-width: 353px;
+
+    }
+
+    .button__profile-edit{
+        width: 30px;
+        height: 30px;
+        
+    }
+
+    .button__profile-edit_photo{
+        margin-right: 0;
+        margin-top: 36px; 
+        min-width: 282px;
+        background-position: center;
+    }   
+}
+
+}

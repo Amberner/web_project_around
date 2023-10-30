@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>around</title>
     <link rel="stylesheet" href="./pages/index.css">
-    <script src="./index.js"></script>
 </head>
 <body>
     <main>
@@ -19,16 +18,31 @@
             </div>          
         </header>
         
+        <section class="profile">
+            <div class="profile__area">
+                <img
+                class="profile__avatar" 
+                src="./vendor/images/comprimir/photo__perfil.jpg" 
+                alt="imagem do avatar">
+                <div class="profile__info">
+                    <h1 class="profile__name">Abner Diniz</h1>
+                    <div id="open-button" class="button button__profile-edit"></div>
+                    <p class="profile__description">Explorador</p>
+                </div>
+                    <button class="button button__profile-edit_photo">&#43;</button>
+            </div>            
+        </section>
+        
         <section class="places">
             <div class="places__card">
                 <div class="places__element">
                     <img
                     class="places__image"
                     src="./vendor/images/comprimir/vale_de_yosemite.png"
-                    alt="">
+                    alt="paisagem do vale Yosemite">
                   <div class="places__item">  
                     <h2 class="places__title">Vale Yosemite</h2>
-                    <button class="places__like">&#9825;</button>
+                    <div class="button button__like button__like_place"></div>
                   </div>  
                 </div>    
             </div>
@@ -37,10 +51,10 @@
                     <img
                     class="places__image"
                     src="./vendor/images/comprimir/california.jpg"
-                    alt="">
+                    alt="montanhas da california">
                   <div class="places__item">  
                     <h2 class="places__title">California</h2>
-                    <button class="places__like">&#9825;</button>
+                    <div class="button button__like button__like_place"></div>
                   </div>  
                 </div>
             </div>
@@ -49,10 +63,10 @@
                     <img
                     class="places__image"
                     src="./vendor/images/comprimir/latemar.png"
-                    alt="">
+                    alt="lago de Vanoise National Park">
                   <div class="places__item">  
-                    <h2 class="places__title">Vanoise National Park asdasd</h2>
-                    <button class="places__like">&#9825;</button>
+                    <h2 class="places__title">Vanoise National</h2>
+                    <div class="button button__like button__like_place"></div>
                   </div>  
                 </div>
             </div>
@@ -61,10 +75,10 @@
                     <img
                     class="places__image"
                     src="./vendor/images/comprimir/lago_louise.png"
-                    alt="">
+                    alt="lagoa azul de louise  ">
                   <div class="places__item">  
                     <h2 class="places__title">Lago Louise</h2>
-                    <button class="places__like">&#9825;</button>
+                    <div class="button button__like button__like_place"></div>
                   </div>  
                 </div>
             </div>
@@ -73,10 +87,10 @@
                     <img
                     class="places__image"
                     src="./vendor/images/comprimir/lago_di_braies.png"
-                    alt="">
+                    alt="ponto de pesca do Lago Di Braies">
                   <div class="places__item">  
                     <h2 class="places__title">Lago Di Braies</h2>
-                    <button class="places__like">&#9825;</button>
+                    <div class="button button__like button__like_place"></div>
                   </div>  
                 </div>
             </div>    
@@ -85,19 +99,53 @@
                     <img
                     class="places__image"
                     src="./vendor/images/comprimir/yatemar.png"
-                    alt="">
+                    alt="Montanhas de Letemar durante uma noite estrelada">
                   <div class="places__item">  
                     <h2 class="places__title">Letemar</h2>
-                    <button class="places__like">&#9825;</button>
+                    <div class="button button__like button__like_place"></div>
                   </div>  
                 </div>
             </div>    
-        
         </section>
 
         <footer class="footer">
             <h3 class="footer__text"> &copy; 2021 Around The U.S.</h2>
         </footer>
     </main>
+
+    <div class="popup">
+      <div class="popup__position">  
+        <div class="popup__close" id="close-button"></div>
+        <div class="popup__form">
+          <h2 class="popup__title">Editar Perfil</h2>
+          <input 
+          type="text"
+          class="popup__input"
+          id="inputName"
+          value="Abner Diniz"
+          name="profile__name"
+          placeholder="Seu Nome"
+          minlength="2"
+          maxlength="40"
+          required> 
+          <input 
+          type="text"
+          class="popup__input"
+          id="inputDescription"
+          value="Explorador"
+          name="profile__description"
+          placeholder="Oque Você é?"
+          minlength="2"
+          maxlength="200"
+          required>
+          <button 
+          id="save-button"
+          type="submit" 
+          class="popup__form_submit" 
+          value="save">Salvar</button>
+        </div>
+      </div>  
+    </div>
+    <script src="./index.js"></script>
 </body>
 </html> 
