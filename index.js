@@ -4,7 +4,7 @@ let closeButton = document.querySelector("#close-button")
 let saveButton = document.querySelector("#save-button");
 let profileName = document.querySelector(".profile__name")
 let profileDescription = document.querySelector(".profile__description")
-let likeButton = document.querySelectorAll(".button__like")
+let likeButton = document.querySelectorAll(".place__button")
 console.log(likeButton)
 
 //abrir o editor do usuario
@@ -41,12 +41,12 @@ saveButton.addEventListener("click", function(e){
 likeButton.forEach(function (button) {
     button.addEventListener("click", function () {
       console.log("Botão de like clicado!");
-      if (button.classList.contains("button__like-active")) {
-        button.classList.remove("button__like-active");
-        button.classList.add("button__like");
+      if (button.classList.contains("place__button-active")) {
+        button.classList.remove("place__button-active");
+        button.classList.add("place__button");
       } else {
-        button.classList.remove("button__like");
-        button.classList.add("button__like-active");
+        button.classList.remove("place__button");
+        button.classList.add("place__button-active");
       }
     });
   });
