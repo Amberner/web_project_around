@@ -51,7 +51,7 @@
      max-width: 100%;
  }
  
- .button__like_place{
+ .button__like{
      position: relative;
      background-image: url(/vendor/images/comprimir/like.png);
      width: 21px;
@@ -63,7 +63,7 @@
      padding: 0;
    }
 
-.button__like_place-active{
+.button__like-active{
     position: relative;
      background-image: url(/vendor/images/comprimir/liked.png);
      width: 21px;
