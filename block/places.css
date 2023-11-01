@@ -51,7 +51,7 @@
      max-width: 100%;
  }
  
- .place__button{
+ .places__button{
      position: relative;
      background-image: url(/vendor/images/comprimir/like.png);
      width: 21px;
@@ -64,11 +64,11 @@
      transition: all .3s ease;
    }
 
-.place__button:hover{
+.places__button:hover{
     opacity: 0.5;
 }
 
-.place__button-active{
+.places__button-active{
     position: relative;
      background-image: url(/vendor/images/comprimir/liked.png);
      width: 21px;
