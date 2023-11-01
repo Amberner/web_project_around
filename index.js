@@ -41,12 +41,12 @@ saveButton.addEventListener("click", function(e){
 likeButton.forEach(function (button) {
     button.addEventListener("click", function () {
       console.log("Botão de like clicado!");
-      if (button.classList.contains("button__like_place-active")) {
-        button.classList.remove("button__like_place-active");
-        button.classList.add("button__like_place");
+      if (button.classList.contains("button__like-active")) {
+        button.classList.remove("button__like-active");
+        button.classList.add("button__like");
       } else {
-        button.classList.remove("button__like_place");
-        button.classList.add("button__like_place-active");
+        button.classList.remove("button__like");
+        button.classList.add("button__like-active");
       }
     });
   });
