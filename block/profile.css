@@ -112,25 +112,25 @@
 
     .profile__info{
         margin-top: 26px;
-        gap: 14px;
+        row-gap: 14px;
+        column-gap: 7px;
         justify-items: center;
     }
 
     .profile__name{
-        max-width: 273px;
+        max-width: 265px;
 
     }
 
     .profile__description{
         margin-left: 50px;
-        max-width: 353px;
+        max-width: 290px;
 
     }
 
     .button__profile-edit{
         width: 30px;
         height: 30px;
-        
     }
 
     .button__profile-edit_photo{
@@ -139,6 +139,4 @@
         min-width: 282px;
         background-position: center;
     }   
-}
-
 }

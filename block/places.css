@@ -53,7 +53,7 @@
  
  .button__like_place{
      position: relative;
-     background-image: url(/vendor/images/comprimir/Vector.png);
+     background-image: url(/vendor/images/comprimir/like.png);
      width: 21px;
      height: 19px;
      max-width: 21px;
@@ -65,7 +65,7 @@
 
 .button__like_place-active{
     position: relative;
-     background-image: url(/vendor/images/comprimir/Union.png);
+     background-image: url(/vendor/images/comprimir/liked.png);
      width: 21px;
      height: 19px;
      max-width: 21px;
