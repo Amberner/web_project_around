@@ -69,7 +69,7 @@
    margin-bottom: 30px;
 }
 
-.popup__form_submit{
+.popup__form-submit{
     margin: 0 auto;
     margin-top: 48px;
     width: 358px;
@@ -113,7 +113,7 @@
     .popup__input:first-of-type{
         margin-top: 78px;
     }
-    .popup__form_submit{
+    .popup__form-submit{
         margin-top: 46px;
         margin-bottom: 25px;
         width: 238px;
