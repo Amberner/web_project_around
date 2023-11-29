@@ -12,7 +12,12 @@
 
 @import url(/block/popupEdit.css);
 
+@import url(/block/popupCard.css);
+
+@import url(/block/image.css);
+
 body{
+    position: relative;
     max-width: 1280px;
     background-color: #000;
     margin: 0 auto;

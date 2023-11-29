@@ -1,4 +1,4 @@
-.popup{
+.popup__cards{
     visibility: hidden;
     position: fixed;
     z-index: 1;
@@ -7,25 +7,25 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); 
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; 
 }
 
-.popup.fade{
-    visibility: visible;
+.popup__cards.fade{
     opacity: 1;
+    visibility: visible; 
     transition: all 0.3s ease;
 }
 
-.popup__position{
+.popup__cards_position{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);   
+    transform: translate(-50%, -50%);
 }
 
-.popup__form{
+.popup__cards_form{
     border-radius: 10px;
     background-color: #FFF;
     width: 430px;
@@ -34,7 +34,8 @@
     display: flex;
     flex-direction: column;
 }
-.popup__close{
+
+.popup__cards_close{
     position: absolute;
     background-image: url(/vendor/images/comprimir/CloseIcon.png);
     width: 40px;
@@ -46,11 +47,11 @@
     transition: all ease .3s;
 }
 
-.popup__close:hover{
+.popup__cards_close:hover{
     opacity: .65;
 }
 
-.popup__title{
+.popup__cards_title{
     color: #000;
     font-family: Inter;
     font-size: 1.5rem;
@@ -60,7 +61,7 @@
     margin: 34px auto 54px 36px;
 }
 
-.popup__input{
+.popup__card_input{
     color: #000;
     font-family: Inter;
     font-size: 0.875rem;
@@ -74,11 +75,11 @@
     width: 358px;
 }
 
-.popup__input:first-of-type{
-   margin-bottom: 30px;
+.popup__card_input:first-of-type{
+    margin-bottom: 30px;
 }
 
-.popup__form-submit{
+.popup__card_form-submit{
     margin: 0 auto;
     margin-top: 48px;
     width: 358px;
@@ -96,12 +97,12 @@
     transition: all ease .3s;
 }
 
-.popup__form-submit:hover{
+.popup__card_form-submit:hover{
     background: rgba(0, 0, 0, 0.80);
 }
 
 @media screen and (max-width: 720px){
-    .popup__close{
+    .popup__cards_close{
         height: 30px;
         width: 30px;
         top: -40px;
@@ -110,23 +111,23 @@
 }
 
 @media screen and (max-width: 560px){
-    .popup__form{
+    .popup__cards_form{
         width: 282px;
         height: 322px;
     }
 
-    .popup__title{
+    .popup__cards_title{
         margin: 25px auto 0 22px;
         font-size: 1.125rem;
     }
 
-    .popup__input{
+    .popup__card_input{
         width: 238px;
     }
-    .popup__input:first-of-type{
+    .popup__card_input:first-of-type{
         margin-top: 78px;
     }
-    .popup__form-submit{
+    .popup__card_form-submit{
         margin-top: 46px;
         margin-bottom: 25px;
         width: 238px;
@@ -134,7 +135,7 @@
         font-size: 0.875rem;
     }
 
-    .popup__close{
+    .popup__cards_close{
         width: 26px;
         height: 26px;
         top: -60px;
