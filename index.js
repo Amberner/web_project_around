@@ -1,13 +1,13 @@
-//template
+//template 
 const cardTemplate = document.querySelector("#placesCardsTemplate");
 //imagem FullScreen
 const imagemFullOpen = document.querySelector(".image");
 const closeImage = document.querySelector(".image__close");
 //popupFormularios 
-const openButton = document.querySelector("#open-button");
+const openButton = document.querySelector("#openButton");
 const popup = document.querySelector(".popup");
-const closeButton = document.querySelector("#close-button");
-const saveButton = document.querySelector("#save-button");
+const closeButton = document.querySelector("#closeButton");
+const saveButton = document.querySelector("#saveButtonPopup");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const likeButton = document.querySelectorAll(".places__button");
@@ -63,10 +63,10 @@ saveButton.addEventListener("click", pushClose)
 //enviar os dados do formulario
 saveButton.addEventListener("click", function(e){
 //para pegar o valor do nome
-    let inputName = document.querySelector("#inputName");
+    let inputName = document.querySelector("#inputNamePopup");
     let valueName = inputName.value;
 //para pegar o valor da descrição
-    let inputDescription = document.querySelector("#inputDescription");
+    let inputDescription = document.querySelector("#inputDescriptionPopup");
     let valueDescription = inputDescription.value;
 
     profileName.textContent = valueName;
