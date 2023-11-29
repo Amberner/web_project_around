@@ -50,13 +50,13 @@ const initialCards = [
 
 //abrir o editor do usuario
 function pushOpen(){
-    popup.style.display = "block";
+    popup.classList.add("fade");
 }
 openButton.addEventListener("click", pushOpen);
 
 //fecha o editor do usuario
 function pushClose(){
-    popup.style.display = "none"
+    popup.classList.remove("fade");
 }
 closeButton.addEventListener("click", pushClose)
 saveButton.addEventListener("click", pushClose)
@@ -69,24 +69,20 @@ saveButton.addEventListener("click", function(e){
     let inputDescription = document.querySelector("#inputDescription");
     let valueDescription = inputDescription.value;
 
-//logar no console
-    console.log(valueName);
-    console.log(valueDescription)
-
     profileName.textContent = valueName;
     profileDescription.textContent = valueDescription;
 })
 
 //abrir formulario para criação dos cards (metodo arrow usado)
 popupOpenCards.addEventListener("click",() =>{
-  popupCards.style.display = "block"
+  popupCards.classList.add("fade");
 })
 //fechar formulario para criação dos cards
 popupSaveCards.addEventListener("click",() => {
-  popupCards.style.display = "none";
+  popupCards.classList.remove("fade");
 })
 popupCloseCards.addEventListener("click",() => {
-  popupCards.style.display = "none";
+  popupCards.classList.remove("fade");
 })
 
 //iniciar os primeiros cards
@@ -116,21 +112,20 @@ function fistCards(name, link){
    deleteButton.addEventListener("click", function(){
     deleteCard(cardId)
    })
-   console.log(cardId)
 
    //abre a imagem se clicar
    const openImage = newCard.querySelector(".places__image");
    openImage.addEventListener("click", function(){
-    imagemFullOpen.style.display = "block"
+    imagemFullOpen.classList.add("fade")
     openFullscreenImage(link, name) 
    })
 
    //fechar a imagem
    closeImage.addEventListener("click", function(){
-    imagemFullOpen.style.display = "none"
+     imagemFullOpen.classList.remove("fade")
    })
    imagemFullOpen.addEventListener("click", function(){
-    imagemFullOpen.style.display = "none"
+     imagemFullOpen.classList.remove("fade")
    })
 
   return newCard;
@@ -186,15 +181,16 @@ popupSaveCards.addEventListener("click", () => {
     //abrir imagem fullScreen
     const openImage = newCard.querySelector(".places__image");
     openImage.addEventListener("click", function(){
-    imagemFullOpen.style.display = "block" 
+    imagemFullOpen.classList.add("fade") 
+    openFullscreenImage(valueLink, valueTitle)
    })
 
    //fechar a imagem
     closeImage.addEventListener("click", function(){
-    imagemFullOpen.style.display = "none"
+    imagemFullOpen.classList.remove("fade")
    })
     imagemFullOpen.addEventListener("click", function(){
-    imagemFullOpen.style.display = "none"
+    imagemFullOpen.classList.remove("fade")
    })
 
     //atribui um identificador unico ao card criado
@@ -213,9 +209,6 @@ popupSaveCards.addEventListener("click", () => {
     // Limpa os campos do formulário
     inputTitle.value = "";
     inputLink.value = "";
-    
-    // Fecha o popup de criação de cards
-    popupCards.style.display = "none";
     
   } else {
     alert("Por favor, preencha o título e o link do card.");
