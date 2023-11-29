@@ -5,7 +5,7 @@ const imagemFullOpen = document.querySelector(".image");
 const closeImage = document.querySelector(".image__close");
 //popupFormularios 
 const openButton = document.querySelector("#openButton");
-const popup = document.querySelector(".popup");
+const popup = document.querySelector(".popups");
 const closeButton = document.querySelector("#closeButton");
 const saveButton = document.querySelector("#saveButtonPopup");
 const profileName = document.querySelector(".profile__name");
@@ -18,7 +18,7 @@ const cardUrl = document.querySelector(".places__image")
 const placesCardTemplate = document.querySelector("#placesCardsTemplate");
 const popupCards = document.querySelector(".popup__cards");
 const popupOpenCards = document.querySelector(".profile__photo-edit");
-const popupCloseCards = document.querySelector(".popup__cards_close");
+const popupCloseCards = document.querySelector(".popup__cards-close");
 const popupSaveCards = document.querySelector("#saveButtonCard");
 const initialCards = [
   {

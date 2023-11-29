@@ -1,4 +1,4 @@
-.popup{
+.popups{
     visibility: hidden;
     position: fixed;
     z-index: 1;
@@ -12,20 +12,20 @@
     transition: all 0.3s ease;
 }
 
-.popup.fade{
+.popups.fade{
     visibility: visible;
     opacity: 1;
     transition: all 0.3s ease;
 }
 
-.popup__position{
+.popups__position{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);   
 }
 
-.popup__form{
+.popups__form{
     border-radius: 10px;
     background-color: #FFF;
     width: 430px;
@@ -34,7 +34,7 @@
     display: flex;
     flex-direction: column;
 }
-.popup__close{
+.popups__close{
     position: absolute;
     background-image: url(/vendor/images/comprimir/CloseIcon.png);
     width: 40px;
@@ -46,11 +46,11 @@
     transition: all ease .3s;
 }
 
-.popup__close:hover{
+.popups__close:hover{
     opacity: .65;
 }
 
-.popup__title{
+.popups__title{
     color: #000;
     font-family: Inter;
     font-size: 1.5rem;
@@ -60,7 +60,7 @@
     margin: 34px auto 54px 36px;
 }
 
-.popup__input{
+.popups__input{
     color: #000;
     font-family: Inter;
     font-size: 0.875rem;
@@ -74,11 +74,11 @@
     width: 358px;
 }
 
-.popup__input:first-of-type{
+.popups__input:first-of-type{
    margin-bottom: 30px;
 }
 
-.popup__form-submit{
+.popups__form-submit{
     margin: 0 auto;
     margin-top: 48px;
     width: 358px;
@@ -96,12 +96,12 @@
     transition: all ease .3s;
 }
 
-.popup__form-submit:hover{
+.popups__form-submit:hover{
     background: rgba(0, 0, 0, 0.80);
 }
 
 @media screen and (max-width: 720px){
-    .popup__close{
+    .popups__close{
         height: 30px;
         width: 30px;
         top: -40px;
@@ -110,23 +110,23 @@
 }
 
 @media screen and (max-width: 560px){
-    .popup__form{
+    .popups__form{
         width: 282px;
         height: 322px;
     }
 
-    .popup__title{
+    .popups__title{
         margin: 25px auto 0 22px;
         font-size: 1.125rem;
     }
 
-    .popup__input{
+    .popups__input{
         width: 238px;
     }
-    .popup__input:first-of-type{
+    .popups__input:first-of-type{
         margin-top: 78px;
     }
-    .popup__form-submit{
+    .popups__form-submit{
         margin-top: 46px;
         margin-bottom: 25px;
         width: 238px;
@@ -134,7 +134,7 @@
         font-size: 0.875rem;
     }
 
-    .popup__close{
+    .popups__close{
         width: 26px;
         height: 26px;
         top: -60px;
