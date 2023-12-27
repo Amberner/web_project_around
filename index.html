@@ -59,12 +59,14 @@
         </footer>
     </main>
 
+    
     <div class="popups">
-      <div class="popups__position">
-        <div class="popups__close" id="closeButton"></div>
-        <div class="popups__form">
-          <h2 class="popups__title">Editar Perfil</h2>
-          <input 
+      <div class="popups__background"> 
+        <div class="popups__position">
+          <div class="popups__close" id="closeButton"></div>
+          <div class="popups__form">
+            <h2 class="popups__title">Editar Perfil</h2>
+            <input 
             type="text"
             class="popups__input"
             id="inputNamePopup"
@@ -74,7 +76,8 @@
             minlength="2"
             maxlength="40"
             required> 
-          <input 
+            <div class="popups__form-error" data-error-for="inputNamePopup"></div>
+            <input 
             type="text"
             class="popups__input"
             id="inputDescriptionPopup"
@@ -84,13 +87,15 @@
             minlength="2"
             maxlength="200"
             required>
-          <button 
-            id="saveButtonPopup"
-            type="submit" 
-            class="popups__form-submit" 
-            value="save">Salvar</button>
-        </div>
-      </div>  
+            <div class="popups__form-error" data-error-for="inputDescriptionPopup"></div>
+            <button 
+              id="saveButtonPopup"
+              type="submit" 
+              class="popups__form-submit" 
+              value="save">Salvar</button>
+          </div>
+        </div>  
+      </div> 
     </div>
     
     <div class="popup">  
@@ -108,6 +113,7 @@
               minlength="2"
               maxlength="200"
               required>
+              <div class="popup__cards-error" data-error-for="cardNameError"></div>
             <input 
               type="text"
               class="popup__cards-input"
@@ -115,6 +121,7 @@
               name="profile__card_url"
               placeholder="Link da Imagem"
               required>
+              <div class="popup__cards-error" data-error-for="cardUrlError"></div>
             <button 
               id="saveButtonCard"
               type="submit"

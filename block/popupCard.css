@@ -75,8 +75,39 @@
     width: 358px;
 }
 
-.popup__cards-input:first-of-type{
-    margin-bottom: 30px;
+.popup__cards-input_error{
+    color: #000;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    border-bottom: 1px solid rgb(255, 0, 0);
+    margin: 0 auto;
+    padding: 0;
+    width: 358px;
+}
+
+
+.popup__cards-input:focus,
+.popup__cards-input_error:focus{
+    outline: none;
+}
+
+.popup__cards-input:last-of-type{
+    margin-top: 30px;
+}
+
+.popup__cards-error{
+    margin-left: 36px;
+    margin-top: 5px;
+    color: #F00;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .popup__cards-submit{
@@ -97,9 +128,16 @@
     transition: all ease .3s;
 }
 
-.popup__cards_form-submit:hover{
-    background: rgba(0, 0, 0, 0.80);
+.popups__cards-submit_error{
+    bottom: desabled;
+    opacity: 0.5;
+    cursor: auto;
 }
+
+.popup__cards-submit:hover{
+    opacity: 0.5;
+}
+
 
 @media screen and (max-width: 720px){
     .popup__cards-close{
@@ -127,7 +165,7 @@
     .popup__cards-input:first-of-type{
         margin-top: 78px;
     }
-    .popup__cards_form-submit{
+    .popup__cards-submit{
         margin-top: 46px;
         margin-bottom: 25px;
         width: 238px;
