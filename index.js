@@ -172,7 +172,10 @@ saveButton.addEventListener("click", function(){
 popupOpenCards.addEventListener("click",(event) =>{
   event.stopPropagation();
   popupCards.classList.add("fade");
+  updateSaveButtonState();
 });
+//desativa ou ativa o botão
+popupSaveCards.addEventListener("click", updateSaveButtonState);
 
 //função para fechar cards
 function closeCardsEdit() {
@@ -306,6 +309,23 @@ function hideCardsErrorUrl() {
   }
 }
 
+// função para desativar ou ativa o botão save
+function updateSaveButtonState() {
+  const inputTitle = document.querySelector("#inputCardTitle");
+  const inputLink = document.querySelector("#inputCardUrl");
+  const saveButton = document.querySelector("#saveButtonCard");
+
+  if (inputTitle.validity.valid && isValidUrl(inputLink.value)) {
+    saveButton.removeAttribute("disabled"); 
+    popupSaveCards.classList.remove("popups__cards-submit_error");
+    inputElement.classList.remove("popup__cards-input_error");
+  } else {
+    saveButton.setAttribute("disabled", true); 
+    popupSaveCards.classList.add("popups__cards-submit_error");
+    inputElement.classList.add("popup__cards-input_error");
+  }
+}
+
 //função para avisos do formulario dos cards titulo
 function inputValidationCardTitle(event) {
   const inputElement = event.target;
@@ -320,13 +340,13 @@ function inputValidationCardTitle(event) {
       showCardsErrorTitle(inputElement, "Preencha corretamente este campo.", errorElementId);
     }
     
-    inputElement.classList.add("popup__cards-input_error");
-    popupSaveCards.classList.add("popups__cards-submit_error");
+    
   } else {
-    inputElement.classList.remove("popup__cards-input_error");
-    popupSaveCards.classList.remove("popups__cards-submit_error");
+    
+    
     hideCardsErrorTitle(errorElementId);
   }
+  updateSaveButtonState();
 }
 
 //função para avisos do formularios dos cards Url
@@ -336,13 +356,10 @@ function inputValidationCardUrl(event) {
 
     if (!isValidUrl(inputElement.value)) {
     showCardsErrorUrl(inputElement, "URL inválido. Por favor, insira um URL válido.");
-    inputElement.classList.add("popup__cards-input_error");
-    popupSaveCards.classList.add("popups__cards-submit_error");
   } else {
-    inputElement.classList.remove("popup__cards-input_error");
-    popupSaveCards.classList.remove("popups__cards-submit_error");
     hideCardsErrorUrl();
   }
+  updateSaveButtonState();
 }
 
 //Botão de Save dos cards
@@ -351,8 +368,8 @@ popupSaveCards.addEventListener("click", () => {
   const valueTitle = inputTitle.value;
   const valueLink = inputLink.value; 
 
-  // Verifica se o título não está vazio 
-  if (!valueTitle.validity.valid && !valueLink.validity.valid){
+  // Verifica se o título e o link não está vazio 
+  if (valueTitle !== "" && valueLink !== ""){
     // Clona o conteúdo do template
     const newCard = document.importNode(cardTemplate.content, true);
 
@@ -387,14 +404,13 @@ popupSaveCards.addEventListener("click", () => {
     
     // Adiciona o novo card à seção de lugares
     placesSection.prepend(newCard);
-    
     // Limpa os campos do formulário
     inputTitle.value = "";
     inputLink.value = "";
-    
-  
   }
   
+  
+
   const likeButton = document.querySelector(".places__button");
   likeButton.addEventListener("click", function (){
     if (likeButton.classList.contains("places__button-active")) {
@@ -406,3 +422,4 @@ popupSaveCards.addEventListener("click", () => {
     };
   });
 });
+
