@@ -1,0 +1,132 @@
+.places{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 17px;
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 800px;
+ }
+ 
+ .places__card{
+     max-width: 282px;
+     max-height: 361px;
+     background-color: #fff;
+     border-radius: 10px;
+     overflow: hidden;
+ }
+ 
+ .places__element{
+     position: relative;
+ }
+ 
+ .places__image{
+     width: 282px;
+     min-height: 282px;
+     max-height: 282px;
+     cursor: pointer;
+ }
+ 
+ .places__item{
+     display: flex;
+     align-items: flex-start;
+     justify-content: space-between;
+     margin: 25px 18px;
+ }
+ 
+ .places__title{
+     color: #000;
+     font-family: Inter;
+     font-size: 1.5rem;
+     font-style: normal;
+     font-weight: 900;
+     line-height: normal;
+     margin: 0;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+     max-width: 100%;
+ }
+ 
+ .places__button{
+     position: relative;
+     background-image: url(/vendor/images/comprimir/like.png);
+     width: 21px;
+     height: 19px;
+     max-width: 21px;
+     max-height: 19px;
+     border: none;
+     cursor: pointer;
+     padding: 0;
+     transition: all .3s ease;
+   }
+
+.places__button:hover{
+    opacity: 0.5;
+}
+
+.places__button-active{
+    position: relative;
+     background-image: url(/vendor/images/comprimir/liked.png);
+     width: 21px;
+     height: 19px;
+     max-width: 21px;
+     max-height: 19px;
+     border: none;
+     cursor: pointer;
+     padding: 0;
+}
+
+.places__button_delete{
+    width: 18px;
+    height: 19.3px;
+    background-image: url(/vendor/images/comprimir/Trash.png);
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    z-index: 1;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.places__button_delete:hover{
+    opacity: 0.6;
+}
+
+@media screen and (max-width:760px) {
+    .places{
+        grid-template-columns: auto auto;
+        justify-items: center;
+        row-gap: 13px;
+        column-gap: 13px;
+    }
+
+}
+
+
+@media screen and (max-width:593px) {
+    .places__card{
+        max-width: 265px;
+        max-height: 361px;
+    }
+    .places__image{
+        width: 282px;
+        min-height: 282px;
+        max-height: 282px;
+    }
+   .places__title{
+        font-size: 1.3rem;
+    }
+
+}
+
+@media screen and (max-width:560px) {
+    .places{
+        grid-template-columns: auto;
+        justify-items: center;
+        row-gap: 20 px;
+        margin-top: 36px;
+    }
+
+}

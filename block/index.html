@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>around</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="logo">
+              <img
+              class="logo__image" 
+              src="./vendor/images/logo.png"
+              alt="logo da pagina">
+              <div class="logo__line"></div>  
+            </div>          
+        </header>
+        
+        <section class="profile">
+            <div class="profile__area">
+                <img
+                class="profile__avatar" 
+                src="./vendor/images/comprimir/photo__perfil.jpg" 
+                alt="imagem do avatar">
+                <div class="profile__info">
+                    <h1 class="profile__name">Abner Diniz</h1>
+                    <button id="openButton" class="profile__button"></button>
+                    <p class="profile__description">Explorador</p>
+                </div>
+                <div class="profile__photo">
+                   <button class="profile__photo-edit">&#43;</button>
+                 </div> 
+            </div>            
+        </section>
+
+        <template id="placesCardsTemplate">
+          <div class="places__card">
+            <div class="places__element">
+              <div class="places__button_delete"></div>
+              <img
+              class="places__image"
+              src="#"
+              alt="algum lugar">
+              <div class="places__item">  
+                <h2 class="places__title"></h2>
+                <button class="places__button"></button>
+              </div>  
+                </div>    
+            </div>
+        </template>
+       
+        <section class="places">
+        </section>
+
+        <footer class="footer">
+            <h3 class="footer__text"> &copy; 2021 Around The U.S.</h3>
+        </footer>
+    </main>
+
+    <div class="popups">
+      <div class="popups__position">
+        <div class="popups__close" id="closeButton"></div>
+        <div class="popups__form">
+          <h2 class="popups__title">Editar Perfil</h2>
+          <input 
+            type="text"
+            class="popups__input"
+            id="inputNamePopup"
+            value="Abner Diniz"
+            name="profile__name"
+            placeholder="Seu Nome"
+            minlength="2"
+            maxlength="40"
+            required> 
+          <input 
+            type="text"
+            class="popups__input"
+            id="inputDescriptionPopup"
+            value="Explorador"
+            name="profile__description"
+            placeholder="O que Você é?"
+            minlength="2"
+            maxlength="200"
+            required>
+          <button 
+            id="saveButtonPopup"
+            type="submit" 
+            class="popups__form-submit" 
+            value="save">Salvar</button>
+        </div>
+      </div>  
+    </div>
+    
+    <div class="popup">  
+      <div class="popup__cards">
+        <div class="popup__cards-position">
+          <div class="popup__cards-close" id="closeButtonCards"></div>
+          <div class="popup__cards-form">
+            <h2 class="popup__cards-title">Novo Local</h2>
+            <input
+              type="text"
+              class="popup__cards-input"
+              id="inputCardTitle"
+              name="profile__card_name"
+              placeholder="Título"
+              minlength="2"
+              maxlength="200"
+              required>
+            <input 
+              type="text"
+              class="popup__cards-input"
+              id="inputCardUrl"
+              name="profile__card_url"
+              placeholder="Link da Imagem"
+              required>
+            <button 
+              id="saveButtonCard"
+              type="submit"
+              class="popup__cards-submit">Criar</button>
+          </div>
+        </div>
+      </div>
+    </div>   
+    
+<div class="image">
+  <div class="image__position">
+    <img src="#" class="image__full" alt="Foi mal, não conseguimos achar sua foto">
+    <h4 class="image__subtitle"></h4>
+    <div class="image__close"></div>
+  </div>
+</div>
+
+    <script src="./index.js"></script>
+</body>
+</html> 
