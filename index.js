@@ -1,5 +1,3 @@
-import { enableValidation } from './validate.js';
-
 //template 
 const cardTemplate = document.querySelector("#placesCardsTemplate");
 //imagem FullScreen
@@ -13,11 +11,7 @@ const saveButton = document.querySelector("#saveButtonPopup");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const likeButton = document.querySelectorAll(".places__button");
-const inputName = document.querySelector("#inputNamePopup");
-const inputDescription = document.querySelector("#inputDescriptionPopup")
 //popupCards
-const inputTitle = document.querySelector("#inputCardTitle");
-const inputLink = document.querySelector("#inputCardUrl");
 const placesSection = document.querySelector(".places");
 const cardTitle = document.querySelector(".places__title");
 const cardUrl = document.querySelector(".places__image")
@@ -55,86 +49,44 @@ const initialCards = [
 
 
 //abrir o editor do usuario
-function pushOpen(event){
-    event.stopPropagation();
+function pushOpen(){
     popup.classList.add("fade");
-};
+}
 openButton.addEventListener("click", pushOpen);
 
 //fecha o editor do usuario
 function pushClose(){
     popup.classList.remove("fade");
-};
-
-//fechar editores com esc
-function closeWithEsc(evt){
-  if(evt.key === "Escape"){
-    pushClose()
-    closeCardsEdit()
-  }
 }
-
-//fecha o editor do usuario e dos cards clicando no display ou no botão fechar 
-function closeClickOutside(event) {
-  if (!event.target.closest(".popups__form") && (!event.target.closest(".popup__cards-form"))){
-    popup.classList.remove("fade");
-    popupCards.classList.remove("fade");
-  };
-};
-
-//fechar editor de perfil
-document.addEventListener("click", closeClickOutside);
-document.addEventListener("keydown", closeWithEsc);
-
-//ouvinte de evento dos formularios do perfil
-inputName.addEventListener("input", inputValidationName);
-inputDescription.addEventListener("input", inputValidationDescription);
-
+closeButton.addEventListener("click", pushClose)
+saveButton.addEventListener("click", pushClose)
 //enviar os dados do formulario
-saveButton.addEventListener("click", function(){
+saveButton.addEventListener("click", function(e){
 //para pegar o valor do nome
     let inputName = document.querySelector("#inputNamePopup");
-    let valueName = inputName.value.trim();
+    let valueName = inputName.value;
 //para pegar o valor da descrição
     let inputDescription = document.querySelector("#inputDescriptionPopup");
-    let valueDescription = inputDescription.value.trim();
+    let valueDescription = inputDescription.value;
 
-    if(!inputName.validity.valid){
-      
-    }else{
-      profileName.textContent = valueName;
-      profileDescription.textContent = valueDescription
-      pushClose()
-    }
-
-});
+    profileName.textContent = valueName;
+    profileDescription.textContent = valueDescription;
+})
 
 //abrir formulario para criação dos cards (metodo arrow usado)
-popupOpenCards.addEventListener("click",(event) =>{
-  event.stopPropagation();
+popupOpenCards.addEventListener("click",() =>{
   popupCards.classList.add("fade");
-  updateSaveButtonState();
-});
-//desativa ou ativa o botão segundo a validação do formulario "cards"
-popupSaveCards.addEventListener("click", updateSaveButtonState);
-
-//função para fechar cards
-function closeCardsEdit() {
-  popupCards.classList.remove("fade");
-}
-
+})
 //fechar formulario para criação dos cards
-popupSaveCards.addEventListener("click", closeCardsEdit)
-
-//fecha o formulario clicando no display e no botao fechar 
-document.addEventListener("click", closeClickOutside);
-
-// ouvinte da validação dos card
-inputTitle.addEventListener("input", inputValidationCardTitle);
-inputLink.addEventListener("input", inputValidationCardUrl)
+popupSaveCards.addEventListener("click",() => {
+  popupCards.classList.remove("fade");
+})
+popupCloseCards.addEventListener("click",() => {
+  popupCards.classList.remove("fade");
+})
 
 //iniciar os primeiros cards
-function firstCards(name, link){
+function fistCards(name, link){
   const newCard = cardTemplate.content.cloneNode(true);
   
   // identificador unico a cada card
@@ -152,50 +104,33 @@ function firstCards(name, link){
     } else {
       likeButton.classList.remove("places__button");
       likeButton.classList.add("places__button-active");
-    };
+    }
   });
 
   //evento de clique ao botao deletar
-  const deleteButton = newCard.querySelector(".places__button_delete");
-  deleteButton.addEventListener("click", function(){
-   deleteCard(cardId)
-  });
+   const deleteButton = newCard.querySelector(".places__button_delete");
+   deleteButton.addEventListener("click", function(){
+    deleteCard(cardId)
+   })
 
-  //abre a imagem se clicar
-  const openImage = newCard.querySelector(".places__image");
-  openImage.addEventListener("click", function(){
-   imagemFullOpen.classList.add("fade")
-   openFullscreenImage(link, name) 
-  });
+   //abre a imagem se clicar
+   const openImage = newCard.querySelector(".places__image");
+   openImage.addEventListener("click", function(){
+    imagemFullOpen.classList.add("fade")
+    openFullscreenImage(link, name) 
+   })
 
-  //fechar a imagem
-  closeImage.addEventListener("click", function(){
-    imagemFullOpen.classList.remove("fade")
-  });
-  imagemFullOpen.addEventListener("click", function(){
-    imagemFullOpen.classList.remove("fade")
-  });
+   //fechar a imagem
+   closeImage.addEventListener("click", function(){
+     imagemFullOpen.classList.remove("fade")
+   })
+   imagemFullOpen.addEventListener("click", function(){
+     imagemFullOpen.classList.remove("fade")
+   })
 
- return newCard;
-};
-
-//função de adicionar cards iniciais
-function addCardsToSection(cards) {
-  cards.forEach(function (card) {
-    const newCard = firstCards(card.name, card.link); 
-    placesSection.appendChild(newCard);
-  });
+  return newCard;
 }
-addCardsToSection(initialCards);
 
-//função abri imagem correspondente fullScreen
-function openFullscreenImage(imageUrl, imageTitle){
-  const fullScreenImage = document.querySelector(".image__full");
-  const fullScreenImageTitle = document.querySelector(".image__subtitle");
-
-  fullScreenImage.src = imageUrl;
-  fullScreenImageTitle.textContent = imageTitle
-};
 
 //função que deleta o cartão
 function deleteCard(cardId) {
@@ -205,17 +140,36 @@ function deleteCard(cardId) {
   //remove o card encontrado
   if (cardToDelete) {
     cardToDelete.remove()
-  };
-};
+  }
+}
+
+//função abri imagem correspondente fullScreen
+function openFullscreenImage(imageUrl, imageTitle){
+  const fullScreenImage = document.querySelector(".image__full");
+  const fullScreenImageTitle = document.querySelector(".image__subtitle");
+
+  fullScreenImage.src = imageUrl;
+  fullScreenImageTitle.textContent = imageTitle
+}
 
 
-//Botão de Save dos cards
+//função de adicionar cards iniciais
+function addCardsToSection(cards){
+  cards.forEach(function (card) {
+    const newCard = fistCards(card.name, card.link);
+    placesSection.appendChild(newCard)
+  });
+}
+addCardsToSection(initialCards);
+
 popupSaveCards.addEventListener("click", () => {
   // Pega os valores dos campos do formulário
+  const inputTitle = document.querySelector("#inputCardTitle");
   const valueTitle = inputTitle.value;
+  const inputLink = document.querySelector("#inputCardUrl");
   const valueLink = inputLink.value; 
 
-  // Verifica se o título e o link não está vazio 
+  // Verifica se o título não está vazio 
   if (valueTitle !== "" && valueLink !== ""){
     // Clona o conteúdo do template
     const newCard = document.importNode(cardTemplate.content, true);
@@ -229,35 +183,37 @@ popupSaveCards.addEventListener("click", () => {
     openImage.addEventListener("click", function(){
     imagemFullOpen.classList.add("fade") 
     openFullscreenImage(valueLink, valueTitle)
-   });
+   })
 
    //fechar a imagem
     closeImage.addEventListener("click", function(){
     imagemFullOpen.classList.remove("fade")
-   });
+   })
     imagemFullOpen.addEventListener("click", function(){
     imagemFullOpen.classList.remove("fade")
-   });
+   })
 
     //atribui um identificador unico ao card criado
     const cardId = Date.now();
-    newCard.querySelector(".places__card").setAttribute("data-card-id", cardId);
+    newCard.querySelector(".places__card").setAttribute("data-card-id", cardId)
 
     //evento de clique ao botão deletar por meio do Id
     const deleteButton = newCard.querySelector(".places__button_delete");
     deleteButton.addEventListener("click", function(){
       deleteCard(cardId);
-    });
+    })
     
     // Adiciona o novo card à seção de lugares
     placesSection.prepend(newCard);
+    
     // Limpa os campos do formulário
     inputTitle.value = "";
     inputLink.value = "";
+    
+  } else {
+    alert("Por favor, preencha o título e o link do card.");
   }
   
-  
-
   const likeButton = document.querySelector(".places__button");
   likeButton.addEventListener("click", function (){
     if (likeButton.classList.contains("places__button-active")) {
@@ -266,16 +222,8 @@ popupSaveCards.addEventListener("click", () => {
     } else {
       likeButton.classList.remove("places__button");
       likeButton.classList.add("places__button-active");
-    };
-  });
+    }
+  })
 });
 
-// Habilitando a validação chamando enableValidation()
-enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible"
-});
+
