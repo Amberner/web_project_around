@@ -103,6 +103,7 @@
 }
 
 .popups__form-error{
+    margin: 0;
     margin-left: 36px;
     margin-top: 5px;
     color: #F00;

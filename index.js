@@ -49,7 +49,8 @@ const initialCards = [
 
 
 //abrir o editor do usuario
-function pushOpen(){
+function pushOpen(event){
+    event.stopPropagation();
     popup.classList.add("fade");
 }
 openButton.addEventListener("click", pushOpen);
@@ -58,10 +59,32 @@ openButton.addEventListener("click", pushOpen);
 function pushClose(){
     popup.classList.remove("fade");
 }
-closeButton.addEventListener("click", pushClose)
+
+//fechar editores com esc
+function closeWithEsc(evt){
+  if(evt.key === "Escape"){
+    pushClose()
+    closeCardsEdit()
+  }
+}
+
+//fecha o editor do usuario e dos cards clicando no display ou no botão fechar 
+function closeClickOutside(event) {
+  if (!event.target.closest(".popups__form") && (!event.target.closest(".popup__cards-form"))){
+    popup.classList.remove("fade");
+    popupCards.classList.remove("fade");
+  };
+};
+
+//fechar editor de perfil
+document.addEventListener("click", closeClickOutside);
+document.addEventListener("keydown", closeWithEsc);
 saveButton.addEventListener("click", pushClose)
+
 //enviar os dados do formulario
-saveButton.addEventListener("click", function(e){
+saveButton.addEventListener("click", function(event){
+  event.preventDefault()
+
 //para pegar o valor do nome
     let inputName = document.querySelector("#inputNamePopup");
     let valueName = inputName.value;
@@ -74,16 +97,21 @@ saveButton.addEventListener("click", function(e){
 })
 
 //abrir formulario para criação dos cards (metodo arrow usado)
-popupOpenCards.addEventListener("click",() =>{
+popupOpenCards.addEventListener("click",(event) =>{
   popupCards.classList.add("fade");
+  event.stopPropagation();
 })
+
 //fechar formulario para criação dos cards
 popupSaveCards.addEventListener("click",() => {
   popupCards.classList.remove("fade");
 })
-popupCloseCards.addEventListener("click",() => {
+
+//função de fechar o formulario cards com esc
+function closeCardsEdit(){
   popupCards.classList.remove("fade");
-})
+}
+
 
 //iniciar os primeiros cards
 function fistCards(name, link){
@@ -162,7 +190,9 @@ function addCardsToSection(cards){
 }
 addCardsToSection(initialCards);
 
-popupSaveCards.addEventListener("click", () => {
+popupSaveCards.addEventListener("click", (event) => {
+  event.preventDefault()
+
   // Pega os valores dos campos do formulário
   const inputTitle = document.querySelector("#inputCardTitle");
   const valueTitle = inputTitle.value;
@@ -211,7 +241,7 @@ popupSaveCards.addEventListener("click", () => {
     inputLink.value = "";
     
   } else {
-    alert("Por favor, preencha o título e o link do card.");
+    popupSaveCards.disabled = true
   }
   
   const likeButton = document.querySelector(".places__button");
