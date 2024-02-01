@@ -20,32 +20,7 @@ const popupCards = document.querySelector(".popup__cards");
 const popupOpenCards = document.querySelector(".profile__photo-edit");
 const popupCloseCards = document.querySelector(".popup__cards-close");
 const popupSaveCards = document.querySelector("#saveButtonCard");
-const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg"
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg"
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg"
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg"
-  }
-]
+
 
 
 //abrir o editor do usuario
@@ -113,8 +88,8 @@ function closeCardsEdit(){
 }
 
 
-//iniciar os primeiros cards
-function fistCards(name, link){
+//iniciar os primeiros cards!!!
+/*function fistCards(name, link){
   const newCard = cardTemplate.content.cloneNode(true);
   
   // identificador unico a cada card
@@ -157,7 +132,7 @@ function fistCards(name, link){
    })
 
   return newCard;
-}
+}*/
 
 
 //função que deleta o cartão
@@ -181,14 +156,14 @@ function openFullscreenImage(imageUrl, imageTitle){
 }
 
 
-//função de adicionar cards iniciais
-function addCardsToSection(cards){
+//função de adicionar cards iniciais!!!
+/*function addCardsToSection(cards){
   cards.forEach(function (card) {
     const newCard = fistCards(card.name, card.link);
     placesSection.appendChild(newCard)
   });
 }
-addCardsToSection(initialCards);
+addCardsToSection(initialCards);*/
 
 popupSaveCards.addEventListener("click", (event) => {
   event.preventDefault()
@@ -221,7 +196,7 @@ popupSaveCards.addEventListener("click", (event) => {
    })
     imagemFullOpen.addEventListener("click", function(){
     imagemFullOpen.classList.remove("fade")
-   })
+   }) 
 
     //atribui um identificador unico ao card criado
     const cardId = Date.now();
