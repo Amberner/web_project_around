@@ -1,3 +1,7 @@
+//------------------------------------ importando os metodos --------------------------------------------
+import Validation from "./FormValidator.js";
+
+//------------------------------------ costantes usadas no JavaScript -----------------------------------
 //template 
 const cardTemplate = document.querySelector("#placesCardsTemplate");
 //imagem FullScreen
@@ -20,6 +24,29 @@ const popupCards = document.querySelector(".popup__cards");
 const popupOpenCards = document.querySelector(".profile__photo-edit");
 const popupCloseCards = document.querySelector(".popup__cards-close");
 const popupSaveCards = document.querySelector("#saveButtonCard");
+
+
+//------------------------------------ criando o FormValidator com os seus parametros -------------------
+//-----validação do profile------------//
+const validationProfile = new Validation({
+  formSelector: ".popups__form",
+  inputSelector: ".popups__input",
+  submitButtonSelector: ".popups__form-submit",
+  buttonError: "popups__form-submit_error",
+  inputErrorClass: "popups__input_error",
+}, document.querySelector(".popups__form")); 
+
+validationProfile.enableValidation();
+//-----validação dos Cards ------------//
+const validationCards = new Validation({
+  formSelector: ".popup__cards-form",
+  inputSelector: ".popup__cards-input",
+  submitButtonSelector: ".popup__cards-submit",
+  buttonError: "popups__cards-submit_error",
+  inputErrorClass: "popup__cards-input_error",
+}, document.querySelector(".popup__cards-form")); 
+
+validationCards.enableValidation();
 
 
 
@@ -87,54 +114,6 @@ function closeCardsEdit(){
   popupCards.classList.remove("fade");
 }
 
-
-//iniciar os primeiros cards!!!
-/*function fistCards(name, link){
-  const newCard = cardTemplate.content.cloneNode(true);
-  
-  // identificador unico a cada card
-  const cardId = Date.now()
-  newCard.querySelector(".places__card").setAttribute("data-card-id", cardId);
-  newCard.querySelector(".places__title").textContent = name;
-  newCard.querySelector(".places__image").src = link;
-  
-  //botão like dos cards padrão
-  const likeButton = newCard.querySelector(".places__button");
-  likeButton.addEventListener("click", function () {
-    if (likeButton.classList.contains("places__button-active")) {
-      likeButton.classList.remove("places__button-active");
-      likeButton.classList.add("places__button");
-    } else {
-      likeButton.classList.remove("places__button");
-      likeButton.classList.add("places__button-active");
-    }
-  });
-
-  //evento de clique ao botao deletar
-   const deleteButton = newCard.querySelector(".places__button_delete");
-   deleteButton.addEventListener("click", function(){
-    deleteCard(cardId)
-   })
-
-   //abre a imagem se clicar
-   const openImage = newCard.querySelector(".places__image");
-   openImage.addEventListener("click", function(){
-    imagemFullOpen.classList.add("fade")
-    openFullscreenImage(link, name) 
-   })
-
-   //fechar a imagem
-   closeImage.addEventListener("click", function(){
-     imagemFullOpen.classList.remove("fade")
-   })
-   imagemFullOpen.addEventListener("click", function(){
-     imagemFullOpen.classList.remove("fade")
-   })
-
-  return newCard;
-}*/
-
-
 //função que deleta o cartão
 function deleteCard(cardId) {
   //encontra o card pelo ID
@@ -154,16 +133,6 @@ function openFullscreenImage(imageUrl, imageTitle){
   fullScreenImage.src = imageUrl;
   fullScreenImageTitle.textContent = imageTitle
 }
-
-
-//função de adicionar cards iniciais!!!
-/*function addCardsToSection(cards){
-  cards.forEach(function (card) {
-    const newCard = fistCards(card.name, card.link);
-    placesSection.appendChild(newCard)
-  });
-}
-addCardsToSection(initialCards);*/
 
 popupSaveCards.addEventListener("click", (event) => {
   event.preventDefault()
@@ -230,5 +199,3 @@ popupSaveCards.addEventListener("click", (event) => {
     }
   })
 });
-
-

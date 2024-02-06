@@ -58,7 +58,7 @@ class Card {
         return this._element;
     };
 
-    //-------------------------------------Funções dos eventListeners-----------------------------------------------
+    //------------------------------------- metodos dos eventListeners------------------------------------------------------
     //mudar o estado do botão Like 
     _likeButtonAction(){
       const likeButton = this._element.querySelector(".places__button");

@@ -136,6 +136,8 @@
     bottom: desabled;
     opacity: 0.5;
     cursor: auto;
+    margin-top: auto ;
+    margin-bottom: auto;
 }
 
 .popups__form-submit:hover{
