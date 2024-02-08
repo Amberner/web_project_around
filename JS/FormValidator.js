@@ -18,7 +18,7 @@ export default class Validation {
                 this._checkFormValidity();
             });
         });
-    }
+    };
 
     _checkFormValidity() {
         let isFormValid = true;

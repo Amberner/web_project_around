@@ -24,9 +24,9 @@ const initialCards = [
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg"
     }
   ]
-
 const fullScreenImage = document.querySelector(".image");
-const closeButtonImage = document.querySelector(".image__close")
+const closeButtonImage = document.querySelector(".image__close");
+const popupSaveCards = document.querySelector("#saveButtonCard");
 
 class Card {
     constructor(name, link){
@@ -63,12 +63,12 @@ class Card {
     _likeButtonAction(){
       const likeButton = this._element.querySelector(".places__button");
       likeButton.classList.toggle("places__button-active");
-    }
+    };
 
     //botão para deletar o card
     _deleteCard(){
       this._element.remove()
-    }
+    };
 
     //abrir a imagem fullScreen
     _openFullImage(){
@@ -120,10 +120,31 @@ class Card {
     };
 };
 
-// ---------------------------------------------Gera os cards da classe Card------------------------------------------------
+// ---------------------------------------------Gera os cards da classe iniciais------------------------------------------------
 initialCards.forEach((item) => {
+// pegando os dodos do array initialCards e enviando para a classe cards
     const card = new Card(item.name, item.link);
+// gerando os cards iniciais
     const cardElement = card.generateCard();
-
+//adicionando os cards gerados  
     document.querySelector(".places").append(cardElement);
-})
+});
+
+//----------------------------------------------Gera os cards individuais-------------------------------------------------------
+popupSaveCards.addEventListener("click", (event) => {
+  event.preventDefault();
+// pegando os dados dos inputs
+  const inputTitle = document.querySelector("#inputCardTitle");
+  const valueTitle = inputTitle.value;
+  const inputLink = document.querySelector("#inputCardUrl");
+  const valueLink = inputLink.value;
+// enviando os dados para a classe Card
+  const card = new Card(valueTitle, valueLink);
+// gerando o cartão
+  const cardElement = card.generateCard();
+// adicioando o cartão gerado   
+  document.querySelector(".places").prepend(cardElement);
+// Limpando os inputs 
+  inputTitle.value = "";
+  inputLink.value = "";  
+});
