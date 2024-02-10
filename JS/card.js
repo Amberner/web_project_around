@@ -138,13 +138,18 @@ popupSaveCards.addEventListener("click", (event) => {
   const valueTitle = inputTitle.value;
   const inputLink = document.querySelector("#inputCardUrl");
   const valueLink = inputLink.value;
-// enviando os dados para a classe Card
-  const card = new Card(valueTitle, valueLink);
-// gerando o cartão
-  const cardElement = card.generateCard();
-// adicioando o cartão gerado   
-  document.querySelector(".places").prepend(cardElement);
-// Limpando os inputs 
-  inputTitle.value = "";
-  inputLink.value = "";  
+  
+  if (valueTitle !== "" && valueLink !== "") {
+    // enviando os dados para a classe Card
+    const card = new Card(valueTitle, valueLink);
+    // gerando o cartão
+    const cardElement = card.generateCard();
+    // adicioando o cartão gerado   
+    document.querySelector(".places").prepend(cardElement);
+    // Limpando os inputs 
+    inputTitle.value = "";
+    inputLink.value = "";
+  } else {
+    alert("Ei, você não completou o formulário, vamos lá tente escrever algo!")
+  }
 });
