@@ -1,6 +1,12 @@
 //------------------------------------ importando os metodos --------------------------------------------
 import Validation from "./FormValidator.js";
+import Card, { initialCards } from "./card.js";
+import	Section from "./Section.js"
+//import PopupWithForm from "./PopupWithForm.js";
 
+/*const popupProfile = new PopupWithForm (() => {
+  
+}, ".popups")*/
 //------------------------------------ criando o FormValidator com os seus parametros -------------------
 //-----validação do profile------------//
 const validationProfile = new Validation({
@@ -22,3 +28,14 @@ const validationCards = new Validation({
 }, document.querySelector(".popup__cards-form")); 
 
 validationCards.enableValidation();
+
+//--------------------------------------------Gerar os cards iniciais-------------------------------------------//
+const cardSelector = new Section({
+  items: initialCards,
+  renderer: (item) =>{
+    const card = new Card(item.name, item.link);
+    const cardElement = card.generateCard();
+    cardSelector.addItem(cardElement);
+  },
+}, ".places")
+cardSelector.rendererItems();

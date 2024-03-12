@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
     {
       name: "Vale de Yosemite",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg"
@@ -28,7 +28,7 @@ const fullScreenImage = document.querySelector(".image");
 const closeButtonImage = document.querySelector(".image__close");
 const popupSaveCards = document.querySelector("#saveButtonCard");
 
-class Card {
+export default class Card {
     constructor(name, link){
         this._name = name,
         this._link = link
@@ -120,16 +120,6 @@ class Card {
     };
 };
 
-// ---------------------------------------------Gera os cards da classe iniciais------------------------------------------------
-initialCards.forEach((item) => {
-// pegando os dodos do array initialCards e enviando para a classe cards
-    const card = new Card(item.name, item.link);
-// gerando os cards iniciais
-    const cardElement = card.generateCard();
-//adicionando os cards gerados  
-    document.querySelector(".places").append(cardElement);
-});
-
 //----------------------------------------------Gera os cards individuais-------------------------------------------------------
 popupSaveCards.addEventListener("click", (event) => {
   event.preventDefault();
@@ -149,7 +139,5 @@ popupSaveCards.addEventListener("click", (event) => {
     // Limpando os inputs 
     inputTitle.value = "";
     inputLink.value = "";
-  } else {
-    alert("Ei, você não completou o formulário, vamos lá tente escrever algo!")
-  }
+  };
 });
