@@ -71,7 +71,7 @@ export default class Card {
     };
 
     //abrir a imagem fullScreen
-    _openFullImage(){
+    /*_openFullImage(){
       fullScreenImage.classList.add("fade");
       //atualizar a imagem e o subtitulo da div imagem
       const fullImageElement = fullScreenImage.querySelector(".image__full");
@@ -81,7 +81,7 @@ export default class Card {
       fullImageElement.src = this._link;
       fullImageElement.alt = this._name;
       subtitleElement.textContent = this._name;
-    };
+    };*/
 
     //fechar a imagem fullScreen
     _closeFullImage(){
@@ -90,7 +90,7 @@ export default class Card {
 
     // ------------------------------------Eventos para os cards pré renderizados-------------------------------------------
     _setEventListeners(){
-      const imageElement = this._element.querySelector(".places__image");
+      //const imageElement = this._element.querySelector(".places__image");
       const deleteButton = this._element.querySelector(".places__button_delete");
       const likeButton = this._element.querySelector(".places__button");
 
@@ -105,9 +105,9 @@ export default class Card {
       });
 
       //abre a Imagem fullScreen
-      imageElement.addEventListener("click", () => {
-        this._openFullImage();
-      });
+      //imageElement.addEventListener("click", () => {
+      //  this._openFullImage();
+      //});
 
       //fechar no botao
       closeButtonImage.addEventListener("click", () => {

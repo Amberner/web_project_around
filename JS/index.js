@@ -2,11 +2,12 @@
 import Validation from "./FormValidator.js";
 import Card, { initialCards } from "./card.js";
 import	Section from "./Section.js"
-//import PopupWithForm from "./PopupWithForm.js";
+import Popup from "./Popup.js";
+import PopupWithForm from "./PopupWithForm.js";
 
-/*const popupProfile = new PopupWithForm (() => {
-  
-}, ".popups")*/
+//terminar
+//import PopupWithImage from "./PopupWithImage.js";
+
 //------------------------------------ criando o FormValidator com os seus parametros -------------------
 //-----validação do profile------------//
 const validationProfile = new Validation({
@@ -39,3 +40,29 @@ const cardSelector = new Section({
   },
 }, ".places")
 cardSelector.rendererItems();
+
+//----------------------------------------instancia do popup-------------------------------------------------//
+const popupFormProfile = new PopupWithForm({
+  popupSelector: ".popups",
+  handleSubmitForm: (formData) => {
+
+  }
+})
+const popupFormCards = new PopupWithForm({
+  popupSelector: ".popup__cards",
+  handleSubmitForm: (formdata) => {
+
+  }
+});
+//------------------------------- botões de abrir e fechar perfil-------------------------------------------
+const openButtonProfile = document.querySelector("#openButton");
+const closeButtonProfile = document.querySelector("#closeButton");
+openButtonProfile.addEventListener("click", () => popupFormProfile.open());
+closeButtonProfile.addEventListener("click", () => popupFormProfile.close());
+//------------------------------- botões de abrir e fechar cards--------------------------------------------
+const openButtonCards = document.querySelector(".profile__photo-edit");
+const closeButtonCards = document.querySelector("#closeButtonCards");
+openButtonCards.addEventListener("click", () => popupFormCards.open());
+closeButtonCards.addEventListener("click", () => popupFormCards.close())
+
+//----------------------------- popupWithForm ----------------------------------------------------------------//

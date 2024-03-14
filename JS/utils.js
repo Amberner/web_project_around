@@ -1,17 +1,6 @@
-import Popup from "./Popup.js";
 
-const popupFormProfile = new Popup(".popups");
-const popupFormCards = new Popup(".popup__cards");
-//------------------------------- botões de abrir e fechar perfil-------------------------------------------
-const openButtonProfile = document.querySelector("#openButton");
-const closeButtonProfile = document.querySelector("#closeButton");
-openButtonProfile.addEventListener("click", () => popupFormProfile.open());
-closeButtonProfile.addEventListener("click", () => popupFormProfile.close());
-//------------------------------- botões de abrir e fechar cards--------------------------------------------
-const openButtonCards = document.querySelector(".profile__photo-edit");
-const closeButtonCards = document.querySelector("#closeButtonCards");
-openButtonCards.addEventListener("click", () => popupFormCards.open());
-closeButtonCards.addEventListener("click", () => popupFormCards.close())
+/*------------------------------- Abrir imagem -------------------------------------------------------------
+
 
 
 //popupFormularios 
