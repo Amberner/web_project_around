@@ -26,7 +26,6 @@ export const initialCards = [
   ]
 const fullScreenImage = document.querySelector(".image");
 const closeButtonImage = document.querySelector(".image__close");
-const popupSaveCards = document.querySelector("#saveButtonCard");
 
 export default class Card {
     constructor(name, link){
@@ -70,24 +69,6 @@ export default class Card {
       this._element.remove()
     };
 
-    //abrir a imagem fullScreen
-    /*_openFullImage(){
-      fullScreenImage.classList.add("fade");
-      //atualizar a imagem e o subtitulo da div imagem
-      const fullImageElement = fullScreenImage.querySelector(".image__full");
-      const subtitleElement = fullScreenImage.querySelector(".image__subtitle");
-      
-      //atribuindo os dados nos campos especificos
-      fullImageElement.src = this._link;
-      fullImageElement.alt = this._name;
-      subtitleElement.textContent = this._name;
-    };*/
-
-    //fechar a imagem fullScreen
-    _closeFullImage(){
-      fullScreenImage.classList.remove("fade");
-    };
-
     // ------------------------------------Eventos para os cards pré renderizados-------------------------------------------
     _setEventListeners(){
       //const imageElement = this._element.querySelector(".places__image");
@@ -104,40 +85,5 @@ export default class Card {
         this._deleteCard();
       });
 
-      //abre a Imagem fullScreen
-      //imageElement.addEventListener("click", () => {
-      //  this._openFullImage();
-      //});
-
-      //fechar no botao
-      closeButtonImage.addEventListener("click", () => {
-        this._closeFullImage();
-      });
-      //fechar clicando na imagem 
-      fullScreenImage.addEventListener("click", () => {
-        this._closeFullImage();
-      });
     };
 };
-
-//----------------------------------------------Gera os cards individuais-------------------------------------------------------
-popupSaveCards.addEventListener("click", (event) => {
-  event.preventDefault();
-// pegando os dados dos inputs
-  const inputTitle = document.querySelector("#inputCardTitle");
-  const valueTitle = inputTitle.value;
-  const inputLink = document.querySelector("#inputCardUrl");
-  const valueLink = inputLink.value;
-  
-  if (valueTitle !== "" && valueLink !== "") {
-    // enviando os dados para a classe Card
-    const card = new Card(valueTitle, valueLink);
-    // gerando o cartão
-    const cardElement = card.generateCard();
-    // adicioando o cartão gerado   
-    document.querySelector(".places").prepend(cardElement);
-    // Limpando os inputs 
-    inputTitle.value = "";
-    inputLink.value = "";
-  };
-});

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>around</title>
-    <link rel="stylesheet" href="./pages/index.css">
-</head>
-<body>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>around</title>
+      <link rel="stylesheet" href="./pages/index.css">
+  </head>
+  <body>
     <main>
         <header>
             <div class="logo">
@@ -30,8 +30,8 @@
                     <p class="profile__description">Explorador</p>
                 </div>
                 <div class="profile__photo">
-                   <button class="profile__photo-edit">&#43;</button>
-                 </div> 
+                    <button class="profile__photo-edit">&#43;</button>
+                  </div> 
             </div>            
         </section>
 
@@ -50,98 +50,95 @@
                 </div>    
             </div>
         </template>
-       
+        
         <section class="places">
         </section>
 
         <footer class="footer">
             <h3 class="footer__text"> &copy; 2021 Around The U.S.</h3>
         </footer>
-    </main>
-    <form novalidate>  
-      <div class="popups" id="popups" novalidate>
-        <div class="popups__position">
-          <div class="popups__close" id="closeButton"></div>
-          <div class="popups__form">
-            <h2 class="popups__title">Editar Perfil</h2>
-            <input 
-              type="text"
-              class="popups__input"
-              id="inputNamePopup"
-              value="Abner Diniz"
-              name="profile__name"
-              placeholder="Seu Nome"
-              minlength="2"
-              maxlength="40"
-              required>
-              <p class="popups__form-error"></p>
-            <input 
-              type="text"
-              class="popups__input"
-              id="inputDescriptionPopup"
-              value="Explorador"
-              name="profile__description"
-              placeholder="O que Você é?"
-              minlength="2"
-              maxlength="200"
-              required>
-              <p class=" popups__form-error"></p>
-            <button 
-              id="saveButtonPopup"
-              type="submit" 
-              class="popups__form-submit" 
-              value="save">Salvar</button>
-          </div>
-        </div>  
+    </main>  
+    
+    <div class="popups" id="popups" novalidate>
+      <div class="popups__position">
+        <div class="popups__close" id="closeButton"></div>
+        <form class="popups__form" novalidate>
+          <h2 class="popups__title">Editar Perfil</h2>
+          <input 
+            type="text"
+            class="popups__input"
+            id="inputNamePopup"
+            value="Abner Diniz"
+            name="profile__name"
+            placeholder="Seu Nome"
+            minlength="2"
+            maxlength="40"
+            required>
+            <p class="popups__form-error"></p>
+          <input 
+            type="text"
+            class="popups__input"
+            id="inputDescriptionPopup"
+            value="Explorador"
+            name="profile__description"
+            placeholder="O que Você é?"
+            minlength="2"
+            maxlength="200"
+            required>
+            <p class=" popups__form-error"></p>
+          <button 
+            id="saveButtonPopup"
+            type="submit" 
+            class="popups__form-submit" 
+            value="save">Salvar</button>
+        </form>
+      </div>  
+    </div> 
+
+
+    <div class="popup__cards">
+      <div class="popup__cards-position">
+        <div class="popup__cards-close" id="closeButtonCards"></div>
+        <form class="popup__cards-form" novalidate>
+          <h2 class="popup__cards-title">Novo Local</h2>
+          <input
+            type="text"
+            class="popup__cards-input"
+            id="inputCardTitle"
+            name="profile__card_name"
+            placeholder="Título"
+            minlength="2"
+            maxlength="200"
+            required>
+            <p class="popup__cards-error"></p>
+          <input 
+            type="url"
+            class="popup__cards-input"
+            id="inputCardUrl"
+            name="profile__card_url"
+            placeholder="Link da Imagem"
+            required>
+            <p class="popup__cards-error"></p>
+          <button 
+            id="saveButtonCard"
+            type="submit"
+            class="popup__cards-submit">Criar</button>
+        </form>
       </div>
-    </form>  
+    </div>
 
-    <form novalidate>
-      <div class="popup" >  
-        <div class="popup__cards">
-          <div class="popup__cards-position">
-            <div class="popup__cards-close" id="closeButtonCards"></div>
-            <div class="popup__cards-form">
-              <h2 class="popup__cards-title">Novo Local</h2>
-              <input
-                type="text"
-                class="popup__cards-input"
-                id="inputCardTitle"
-                name="profile__card_name"
-                placeholder="Título"
-                minlength="2"
-                maxlength="200"
-                required>
-                <p class="popup__cards-error"></p>
-              <input 
-                type="url"
-                class="popup__cards-input"
-                id="inputCardUrl"
-                name="profile__card_url"
-                placeholder="Link da Imagem"
-                required>
-                <p class="popup__cards-error"></p>
-              <button 
-                id="saveButtonCard"
-                type="submit"
-                class="popup__cards-submit">Criar</button>
-            </div>
-          </div>
-        </div>
-      </div>   
-    </form>  
-<div class="image">
-  <div class="image__position">
-    <img src="#" class="image__full" alt="Foi mal, não conseguimos achar sua foto">
-    <h4 class="image__subtitle"></h4>
-    <div class="image__close"></div>
-  </div>
-</div>
+    <div class="image">
+      <div class="image__position">
+        <img src="#" class="image__full" alt="Foi mal, não conseguimos achar sua foto">
+        <h4 class="image__subtitle"></h4>
+        <div class="image__close"></div>
+      </div>
+    </div>
 
 
-<script type="module" src="./JS/index.js"></script>
-<script type="module" src="./JS/FormValidator.js"></script>
-<script type="module" src="./JS/utils.js"></script>
-<script type="module" src="./JS/card.js"></script>
-</body>
+    <script type="module" src="./JS/index.js"></script>
+    <script type="module" src="./JS/FormValidator.js"></script>
+    <script type="module" src="./JS/utils.js"></script>
+    <script type="module" src="./JS/card.js"></script>
+  </body>
 </html> 
