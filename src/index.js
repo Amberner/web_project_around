@@ -1,10 +1,11 @@
+import "../src/index.css"
 //------------------------------------ importando os metodos --------------------------------------------
-import Validation from "./FormValidator.js";
-import Card, { initialCards } from "./card.js";
-import Section from "./Section.js"
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import UserInfo from "./UserInfo.js";
+import Validation from "../JS/FormValidator.js";
+import Card, { initialCards } from "../JS/card.js";
+import Section from "../JS/Section.js"
+import PopupWithForm from "../JS/PopupWithForm.js";
+import PopupWithImage from "../JS/PopupWithImage.js";
+import UserInfo from "../JS/UserInfo.js";
 
 //-----validação do profile------------//
 const validationProfile = new Validation({

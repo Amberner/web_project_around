@@ -24,8 +24,6 @@ export const initialCards = [
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg"
     }
   ]
-const fullScreenImage = document.querySelector(".image");
-const closeButtonImage = document.querySelector(".image__close");
 
 export default class Card {
     constructor(name, link){
@@ -69,9 +67,8 @@ export default class Card {
       this._element.remove()
     };
 
-    // ------------------------------------Eventos para os cards pré renderizados-------------------------------------------
+    // ------------------------------------Eventos para os cards -------------------------------------------
     _setEventListeners(){
-      //const imageElement = this._element.querySelector(".places__image");
       const deleteButton = this._element.querySelector(".places__button_delete");
       const likeButton = this._element.querySelector(".places__button");
 

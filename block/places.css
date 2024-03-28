@@ -52,6 +52,7 @@
  .places__button{
      position: relative;
      background-image: url(/vendor/images/comprimir/like.png);
+     background-color: #fff;
      width: 21px;
      height: 19px;
      max-width: 21px;
@@ -67,13 +68,13 @@
 }
 
 .places__button-active{
-    position: relative;
+     position: relative;
      background-image: url(/vendor/images/comprimir/liked.png);
+     background-color: #fff;
      width: 21px;
      height: 19px;
      max-width: 21px;
      max-height: 19px;
-     border: none;
      cursor: pointer;
      padding: 0;
 }

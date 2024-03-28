@@ -4,7 +4,6 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>around</title>
-      <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body>
     <main>
@@ -12,7 +11,7 @@
             <div class="logo">
               <img
               class="logo__image" 
-              src="./vendor/images/logo.png"
+              src="<%=require('./imagens/logo.png')%>" 
               alt="logo da pagina">
               <div class="logo__line"></div>  
             </div>          
@@ -22,7 +21,7 @@
             <div class="profile__area">
                 <img
                 class="profile__avatar" 
-                src="./vendor/images/comprimir/photo__perfil.jpg" 
+                src="<%=require('./imagens/photo__perfil.jpg')%>" 
                 alt="imagem do avatar">
                 <div class="profile__info">
                     <h1 class="profile__name">Abner Diniz</h1>
@@ -136,7 +135,7 @@
     </div>
 
 
-    <script type="module" src="./JS/index.js"></script>
+    <script type="module" src="./src/index.js"></script>
     <script type="module" src="./JS/FormValidator.js"></script>
     <script type="module" src="./JS/utils.js"></script>
     <script type="module" src="./JS/card.js"></script>

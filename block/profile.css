@@ -58,7 +58,6 @@
 }
 
 .profile__button{
-    background: #000;
     background-image: url(/vendor/images/comprimir/EditButton.png);
     background-size: cover;
     cursor: pointer;
