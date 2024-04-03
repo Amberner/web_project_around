@@ -1,4 +1,4 @@
-.popup__cards{
+.popup-cards{
     visibility: hidden;
     position: fixed;
     z-index: 1;
