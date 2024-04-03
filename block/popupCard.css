@@ -12,20 +12,20 @@
     transition: all 0.3s ease; 
 }
 
-.popup__cards.fade{
+.popup-cards.fade{
     opacity: 1;
     visibility: visible;
     transition: all 0.3s ease;
 }
 
-.popup__cards-position{
+.popup-cards__position{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.popup__cards-form{
+.popup-cards__form{
     border-radius: 10px;
     background-color: #FFF;
     width: 430px;
@@ -35,7 +35,7 @@
     flex-direction: column;
 }
 
-.popup__cards-close{
+.popup-cards__close{
     position: absolute;
     background-image: url(/vendor/images/comprimir/CloseIcon.png);
     width: 40px;
@@ -47,11 +47,11 @@
     transition: all ease .3s;
 }
 
-.popup__cards-close:hover{
+.popup-cards__close:hover{
     opacity: .65;
 }
 
-.popup__cards-title{
+.popup-cards__title{
     color: #000;
     font-family: Inter;
     font-size: 1.5rem;
@@ -61,7 +61,7 @@
     margin: 34px auto 54px 36px;
 }
 
-.popup__cards-input{
+.popup-cards__input{
     color: #000;
     font-family: Inter;
     font-size: 0.875rem;
@@ -90,16 +90,16 @@
 }
 
 
-.popup__cards-input:focus,
+.popup-cards__input:focus,
 .popup__cards-input_error:focus{
     outline: none;
 }
 
-.popup__cards-input:last-of-type{
+.popup-cards__input:last-of-type{
     margin-top: 30px;
 }
 
-.popup__cards-error{
+.popup-cards__error{
     margin: 0;
     margin-left: 36px;
     margin-top: 5px;
@@ -111,7 +111,7 @@
     line-height: normal;
 }
 
-.popup__cards-submit{
+.popup-cards__submit{
     margin: 0 auto;
     margin-top: 48px;
     width: 358px;
@@ -137,13 +137,13 @@
     margin-bottom: auto;
 }
 
-.popup__cards-submit:hover{
+.popup-cards__submit:hover{
     opacity: 0.5;
 }
 
 
 @media screen and (max-width: 720px){
-    .popup__cards-close{
+    .popup-cards__closee{
         height: 30px;
         width: 30px;
         top: -40px;
@@ -152,23 +152,23 @@
 }
 
 @media screen and (max-width: 560px){
-    .popup__cards-form{
+    .popup-cards__form{
         width: 282px;
         height: 322px;
     }
 
-    .popup__cards-title{
+    .popup-cards__title{
         margin: 25px auto 0 22px;
         font-size: 1.125rem;
     }
 
-    .popup__cards-input{
+    .popup-cards__input{
         width: 238px;
     }
-    .popup__cards-input:first-of-type{
+    .popup-cards__input:first-of-type{
         margin-top: 78px;
     }
-    .popup__cards-submit{
+    .popup-cards__submit{
         margin-top: 46px;
         margin-bottom: 25px;
         width: 238px;
@@ -176,7 +176,7 @@
         font-size: 0.875rem;
     }
 
-    .popup__cards-close{
+    .popup-cards__close{
         width: 26px;
         height: 26px;
         top: -60px;

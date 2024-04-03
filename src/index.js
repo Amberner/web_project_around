@@ -19,12 +19,12 @@ const validationProfile = new Validation({
 validationProfile.enableValidation();
 //-----validação dos Cards ------------//
 const validationCards = new Validation({
-  formSelector: ".popup__cards-form",
-  inputSelector: ".popup__cards-input",
-  submitButtonSelector: ".popup__cards-submit",
+  formSelector: ".popup-cards__form",
+  inputSelector: ".popup-cards__input",
+  submitButtonSelector: ".popup-cards__submit",
   buttonError: "popups__cards-submit_error",
   inputErrorClass: "popup__cards-input_error",
-}, document.querySelector(".popup__cards-form")); 
+}, document.querySelector(".popup-cards__form")); 
 
 validationCards.enableValidation();
 
@@ -61,7 +61,7 @@ const handleSubmitFormCard = (formData) => {
 
 }
 
-const popupFormCards = new PopupWithForm(handleSubmitFormCard, ".popup__cards", ".popup__cards-form")
+const popupFormCards = new PopupWithForm(handleSubmitFormCard, ".popup-cards", ".popup-cards__form")
 
 
 //------------------------------------ popupWithForm do profile ---------------------------------------------//
