@@ -19,25 +19,27 @@
         
         <section class="profile">
             <div class="profile__area">
-                <img
-                class="profile__avatar" 
-                src="<%=require('./imagens/photo__perfil.jpg')%>" 
-                alt="imagem do avatar">
-                <div class="profile__info">
-                    <h1 class="profile__name">Abner Diniz</h1>
-                    <button id="openButton" class="profile__button"></button>
-                    <p class="profile__description">Explorador</p>
+              <div class="profile__avatar-edit ">
+                  <img
+                  class="profile__avatar" 
+                  src="" 
+                  alt="imagem do avatar">
+              </div>
+                <div id="openButton" class="profile__info">
+                    <h1 class="profile__name"></h1>
+                    <button class="profile__button"></button>
+                    <p class="profile__description"></p>
                 </div>
                 <div class="profile__photo">
-                    <button class="profile__photo-edit">&#43;</button>
+                    <button class="profile__card-create">&#43;</button>
                   </div> 
             </div>            
         </section>
 
         <template class="places_card_template" id="placesCardsTemplate">
-          <div class="places__card">
+          <div class="places__card" data-card-id="#">
             <div class="places__element">
-              <div class="places__button_delete"></div>
+              <div class="places__button_delete" id="deleteCard"></div>
               <img
               class="places__image"
               src="#"
@@ -45,6 +47,7 @@
               <div class="places__item">  
                 <h2 class="places__title"></h2>
                 <button class="places__button"></button>
+                <span class="places__like-counter"></span>
               </div>  
                 </div>    
             </div>
@@ -58,7 +61,7 @@
         </footer>
     </main>  
     
-    <div class="popups" id="popups" novalidate>
+    <div class="popups" id="popups">
       <div class="popups__position">
         <div class="popups__close" id="closeButton"></div>
         <form class="popups__form" novalidate>
@@ -67,7 +70,7 @@
             type="text"
             class="popups__input"
             id="inputNamePopup"
-            value="Abner Diniz"
+            value=""
             name="profile__name"
             placeholder="Seu Nome"
             minlength="2"
@@ -78,7 +81,7 @@
             type="text"
             class="popups__input"
             id="inputDescriptionPopup"
-            value="Explorador"
+            value=""
             name="profile__description"
             placeholder="O que Você é?"
             minlength="2"
@@ -93,6 +96,26 @@
         </form>
       </div>  
     </div> 
+
+    <div class="popup__edit">
+      <div class="popup__edit-position">
+        <div class="popup__edit-close" id="closeButtonEdit"></div>
+        <form class="popup__edit-form" novalidate>
+          <h2 class="popup__edit-title">Alterar a foto do perfil</h2>
+          <input
+            type="url"
+            name="profile__avatar"
+            class="popup_edit-input"
+            id="inputEditPhoto"
+            placeholder="adicione a url da sua foto"
+            required>
+          <p class=" popups__form-error"></p>
+          <button 
+          id="saveButtonAvatar"
+          class="popup__edit-button">Salvar</button>
+        </form>
+      </div>
+    </div>
 
 
     <div class="popup-cards">
@@ -123,6 +146,18 @@
             type="submit"
             class="popup-cards__submit">Criar</button>
         </form>
+      </div>
+    </div>
+  
+    <div class="popup-cards__confirm">
+      <div class="popup-cards__position-confirm">
+        <div class="popup-cards__close-confirm" id="closeButtonDelete"></div>
+          <form class="popup-cards__form-confirm">
+            <h2 class="popup-cards__title-confirm">Tem certeza?</h2>
+            <button
+            id="deleteButtonCardConfirm"
+            class="popup-cards__delete-confirm">Sim</button>
+          </form>
       </div>
     </div>
 

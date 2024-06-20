@@ -13,19 +13,54 @@
     align-items: center;
 }
 
-.profile__avatar{
-    max-width: 120px;
-    max-height: 120px;
-    border-radius: 70px;
-    grid-column: 1;
-}
-
 .profile__info{
     grid-column: 2;
     display: grid;
     gap: 18px;
     align-items: center;
+} 
+
+.profile__avatar{
+    cursor: pointer;
+    max-height: 120px;
+    border-radius: 70px;
+    grid-column: 1;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 3;
 }
+
+.profile__avatar:hover {
+    opacity: 0.5; 
+}
+
+.profile__avatar-edit{
+    background-image: url(/src/imagens/EditAvatar.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    position: relative;
+    cursor: pointer;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 70px;
+    grid-column: 1;
+    overflow: hidden;
+}
+
+
+.profile__avatar-edit .edit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.profile__avatar-edit:hover .edit-icon {
+    opacity: 1;
+}
+
 
 .profile__name{
     color: #FFF;
@@ -58,11 +93,15 @@
 }
 
 .profile__button{
-    background-image: url(/vendor/images/comprimir/EditButton.png);
-    background-size: cover;
-    cursor: pointer;
-    color: #FFF;
+    background:#000;
+    background-image: url(/src/imagens/EditAvatar.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    border-radius: 2px;
     border: 1px solid #FFF;
+    color: #FFF;
+    cursor: pointer;
     grid-column: 2;
     width: 24px;
     height: 24px;
@@ -77,7 +116,7 @@
     grid-column: 4;
 }
 
-.profile__photo-edit{
+.profile__card-create{
     background:#000;
     font-size: 40px;
     cursor: pointer;
@@ -89,7 +128,7 @@
     transition: all .3s ease;
 }
 
-.profile__photo-edit:hover{
+.profile__card-create:hover{
     opacity: 0.5;
 }
 
@@ -106,7 +145,7 @@
         height: 30px;
     }
 
-    .profile__photo-edit{
+    .profile__card-create{
         margin-right: 10px; 
     }
 }
@@ -145,7 +184,7 @@
         height: 30px;
     }
 
-    .profile__photo-edit{
+    .profile__card-create{
         margin-right: 0;
         margin-top: 36px;
         min-width: 282px;

@@ -11,7 +11,7 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 //popupCards
 const popupCards = document.querySelector(".popup__cards");
-const popupOpenCards = document.querySelector(".profile__photo-edit");
+const popupOpenCards = document.querySelector(".profile__card-create");
 const popupSaveCards = document.querySelector("#saveButtonCard");
 
 //console.log(popup)

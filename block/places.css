@@ -29,6 +29,7 @@
  }
  
  .places__item{
+    position: relative;
      display: flex;
      align-items: flex-start;
      justify-content: space-between;
@@ -80,6 +81,8 @@
 }
 
 .places__button_delete{
+    visibility: hidden;
+    opacity: 0;
     width: 18px;
     height: 19.3px;
     background-image: url(/vendor/images/comprimir/Trash.png);
@@ -93,6 +96,17 @@
 
 .places__button_delete:hover{
     opacity: 0.6;
+}
+
+.places__button_delete.fade{
+    visibility: visible;
+    opacity: 1;
+}
+
+.places__like-counter{
+    position: absolute;
+    right: 7px ;
+    top: 20px;
 }
 
 @media screen and (max-width:760px) {

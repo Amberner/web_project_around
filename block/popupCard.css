@@ -141,9 +141,103 @@
     opacity: 0.5;
 }
 
+.popup-cards__confirm{
+    visibility: hidden;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: all 0.3s ease; 
+}
+
+.popup-cards__confirm.fade{
+    opacity: 1;
+    cursor: pointer;
+    z-index: 3;
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.popup-cards__position-confirm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup-cards__close-confirm{
+    position: absolute;
+    background-image: url(/vendor/images/comprimir/CloseIcon.png);
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    top: -50px;
+    right: -50px;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.popup-cards__close-confirm:hover{
+    opacity: .3;
+}
+
+
+.popup-cards__form-confirm{
+    border-radius: 10px;
+    background-color: #FFF;
+    width: 430px;
+    height: 181px;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-cards__title-confirm{
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin: 34px auto 0px 36px;
+}
+
+.popup-cards__delete-confirm{
+    margin: 0 auto;
+    margin-top: 38px;
+    width: 358px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    background-color: #000;
+    color: #fff;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 250;
+    line-height: normal;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.popup-cards__delete-confirm:hover{
+    opacity: 0.65;
+}
 
 @media screen and (max-width: 720px){
-    .popup-cards__closee{
+    .popup-cards__close{
+        height: 30px;
+        width: 30px;
+        top: -40px;
+        right: -35px;
+    }
+
+    .popup-cards__close-confirm{
         height: 30px;
         width: 30px;
         top: -40px;
@@ -157,6 +251,11 @@
         height: 322px;
     }
 
+    .popup-cards__form-confirm{
+        width: 282px;
+        height: 222px;
+    }
+
     .popup-cards__title{
         margin: 25px auto 0 22px;
         font-size: 1.125rem;
@@ -168,6 +267,7 @@
     .popup-cards__input:first-of-type{
         margin-top: 78px;
     }
+
     .popup-cards__submit{
         margin-top: 46px;
         margin-bottom: 25px;
@@ -176,7 +276,15 @@
         font-size: 0.875rem;
     }
 
-    .popup-cards__close{
+    .popup-cards__delete-confirm{
+        margin-top: 46px;
+        margin-bottom: 25px;
+        width: 238px;
+        height: 46px;
+        font-size: 0.875rem;
+    }
+
+    .popup-cards__close-confirm{
         width: 26px;
         height: 26px;
         top: -60px;

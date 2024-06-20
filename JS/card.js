@@ -1,86 +1,112 @@
-export const initialCards = [
-    {
-      name: "Vale de Yosemite",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg"
-    },
-    {
-      name: "Lago Louise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg"
-    },
-    {
-      name: "Montanhas Carecas",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg"
-    },
-    {
-      name: "Latemar",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg"
-    },
-    {
-      name: "Parque Nacional da Vanoise ",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg"
-    },
-    {
-      name: "Lago di Braies",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg"
-    }
-  ]
-
 export default class Card {
-    constructor(name, link){
-        this._name = name,
-        this._link = link
-    };
+  constructor({ name, link, likes, id, userId, api, ownerId, popupWithConfirmation }) {
+    this._name = name;
+    this._link = link;
+    this._likes = likes;
+    this._id = id;
+    this._userId = userId;
+    this._api = api;
+    this._ownerId = ownerId;
+    this._popupWithConfirmation = popupWithConfirmation;
+    this._element = this._getTemplate();
+  }
 
-    _getTemplate() {
-        const cardElement = document
-        .querySelector(".places_card_template")
-        .content
-        .querySelector(".places__card")
-        .cloneNode(true);
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(".places_card_template")
+      .content
+      .querySelector(".places__card")
+      .cloneNode(true);
+    return cardElement;
+  }
 
-        return cardElement;
-    };
+  generateCard() {
+    const cardImage = this._element.querySelector('.places__image');
+    const cardTitle = this._element.querySelector('.places__title');
+    const likeCount = this._element.querySelector('.places__like-counter');
+    const likeButton = this._element.querySelector('.places__button');
+    const buttonDelete = this._element.querySelector('.places__button_delete');
 
-    generateCard(){
-        this._element = this._getTemplate();
-        //adiciona os eventos ouvintes
-        this._setEventListeners();
+    cardImage.src = this._link;
+    cardImage.alt = this._name;
+    cardTitle.textContent = this._name;
+    this._updateLikes(this._likes);
+    likeCount.textContent = this._likes.length;
+    
+    this._element.setAttribute("data-card-id", this._id);
 
-        this._element.querySelector(".places__title").textContent = this._name;
-        
-        const imageElement = this._element.querySelector(".places__image");
-        imageElement.src = this._link;
-        imageElement.alt = this._name;
+    // Verifique se o card pertence ao usuário atual para mostrar o botão de deletar
+    if (this._userId === this._ownerId) {
+      buttonDelete.classList.add("fade");
+      buttonDelete.addEventListener("click", this._handleDeleteClick.bind(this));
+      console.log("Classe 'fade' adicionada ao botão de deletar.");
+    }
 
-        return this._element;
-    };
+    this._setEventListeners();
+    
+    return this._element;
+  }
 
-    //------------------------------------- metodos dos eventListeners------------------------------------------------------
-    //mudar o estado do botão Like 
-    _likeButtonAction(){
-      const likeButton = this._element.querySelector(".places__button");
-      likeButton.classList.toggle("places__button-active");
-    };
+  _updateLikes(likes) {
+    const likeButton = this._element.querySelector(".places__button");
+    const likeCounter = this._element.querySelector(".places__like-counter");
 
-    //botão para deletar o card
-    _deleteCard(){
-      this._element.remove()
-    };
+    likeButton.classList.toggle("places__button-active", likes.some(user => user._id === this._userId));
+    likeCounter.textContent = `${likes.length}`;
+  }
 
-    // ------------------------------------Eventos para os cards -------------------------------------------
-    _setEventListeners(){
-      const deleteButton = this._element.querySelector(".places__button_delete");
-      const likeButton = this._element.querySelector(".places__button");
+  _likeButtonAction() {
+    const likeButton = this._element.querySelector(".places__button");
+    if (likeButton.classList.contains("places__button-active")) {
+      this._api.unlikeCard(this._id)
+        .then((updatedCard) => {
+          this._updateLikes(updatedCard.likes);
+          likeButton.classList.remove("places__button-active");
+        })
+        .catch((err) => {
+          console.error("Erro ao descurtir o card:", err);
+        });
+    } else {
+      this._api.likeCard(this._id)
+        .then((updatedCard) => {
+          this._updateLikes(updatedCard.likes);
+          likeButton.classList.add("places__button-active");
+        })
+        .catch((err) => {
+          console.error("Erro ao curtir o card:", err);
+        });
+    }
+  }
 
-      //botão de dar like
-      likeButton.addEventListener("click", (event) => {
-        this._likeButtonAction(event);
+  _handleDeleteClick(event) {
+    const cardElement = event.target.closest(".places__card");
+    const cardId = cardElement.getAttribute("data-card-id");
+    const buttonConfirm = document.querySelector(".popup-cards__delete-confirm")
+
+    buttonConfirm.textContent = "Sim";
+    
+    this._popupWithConfirmation.setSubmitAction(() => {
+      buttonConfirm.textContent = "Excluindo...";
+      this._api.deleteCard(cardId)
+      .then(() => {
+        setTimeout(() => {
+          cardElement.remove();
+          this._popupWithConfirmation.close();
+        }, 1000)
+      }).catch((err) => {
+        console.error("Erro ao excluir o card:", err);
       });
+    });
 
-      //deletar o card
-      deleteButton.addEventListener("click", () => {
-        this._deleteCard();
-      });
+    this._popupWithConfirmation.open();
+  }
 
-    };
-};
+  _setEventListeners() {
+    const likeButton = this._element.querySelector(".places__button");
+    if (likeButton) {
+      likeButton.addEventListener("click", () => this._likeButtonAction());
+    } else {
+      console.error("Botão de Like não foi encontrado!");
+    }
+  }
+}
