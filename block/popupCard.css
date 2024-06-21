@@ -141,7 +141,7 @@
     opacity: 0.5;
 }
 
-.popup-cards__confirm{
+.popup-confirm{
     visibility: hidden;
     position: fixed;
     z-index: 1;
@@ -155,7 +155,7 @@
     transition: all 0.3s ease; 
 }
 
-.popup-cards__confirm.fade{
+.popup-confirm.fade{
     opacity: 1;
     cursor: pointer;
     z-index: 3;
@@ -163,14 +163,14 @@
     transition: all 0.3s ease;
 }
 
-.popup-cards__position-confirm{
+.popup-confirm__position{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.popup-cards__close-confirm{
+.popup-confirm__close{
     position: absolute;
     background-image: url(/vendor/images/comprimir/CloseIcon.png);
     width: 40px;
@@ -182,12 +182,12 @@
     transition: all ease .3s;
 }
 
-.popup-cards__close-confirm:hover{
+.popup-confirm__close:hover{
     opacity: .3;
 }
 
 
-.popup-cards__form-confirm{
+.popup-confirm__form{
     border-radius: 10px;
     background-color: #FFF;
     width: 430px;
@@ -197,7 +197,7 @@
     flex-direction: column;
 }
 
-.popup-cards__title-confirm{
+.popup-confirm__title{
     color: #000;
     font-family: Inter;
     font-size: 1.5rem;
@@ -207,7 +207,7 @@
     margin: 34px auto 0px 36px;
 }
 
-.popup-cards__delete-confirm{
+.popup-confirm__delete-button{
     margin: 0 auto;
     margin-top: 38px;
     width: 358px;
@@ -225,7 +225,7 @@
     transition: all ease .3s;
 }
 
-.popup-cards__delete-confirm:hover{
+.popup-confirm__delete-button:hover{
     opacity: 0.65;
 }
 
@@ -237,7 +237,7 @@
         right: -35px;
     }
 
-    .popup-cards__close-confirm{
+    .popup-confirm__close{
         height: 30px;
         width: 30px;
         top: -40px;
@@ -251,7 +251,7 @@
         height: 322px;
     }
 
-    .popup-cards__form-confirm{
+    .popup-confirm__form{
         width: 282px;
         height: 222px;
     }
@@ -276,7 +276,7 @@
         font-size: 0.875rem;
     }
 
-    .popup-cards__delete-confirm{
+    .popup-confirm__delete-button{
         margin-top: 46px;
         margin-bottom: 25px;
         width: 238px;
@@ -284,7 +284,7 @@
         font-size: 0.875rem;
     }
 
-    .popup-cards__close-confirm{
+    .popup-confirm__close{
         width: 26px;
         height: 26px;
         top: -60px;

@@ -76,9 +76,9 @@ api.getUserInfo().then((userData) => {
 //------------------------------------- popup para o delete -----------------------------------//
 
 document.addEventListener("DOMContentLoaded", () => {
-  const popupWithConfirmation = new PopupWithConfirmation(".popup-cards__confirm");
+  const popupWithConfirmation = new PopupWithConfirmation(".popup-confirm");
 
-  const closeDeleteCards = document.querySelector(".popup-cards__close-confirm");
+  const closeDeleteCards = document.querySelector(".popup-confirm__close");
   if (closeDeleteCards) {
     closeDeleteCards.addEventListener("click", () => popupWithConfirmation.close());
   } 

@@ -81,7 +81,7 @@ export default class Card {
   _handleDeleteClick(event) {
     const cardElement = event.target.closest(".places__card");
     const cardId = cardElement.getAttribute("data-card-id");
-    const buttonConfirm = document.querySelector(".popup-cards__delete-confirm")
+    const buttonConfirm = document.querySelector(".popup-confirm__delete-button")
 
     buttonConfirm.textContent = "Sim";
     
