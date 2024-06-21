@@ -26,7 +26,7 @@ const validationProfileAtavar = new Validation({
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
   buttonError: ".popup__button_error",
-  inputErrorClass: ".popups__input_error",
+  inputErrorClass: ".popup__error",
 }, document.querySelector(".popup__form"));
 
 validationProfileAtavar.enableValidation();
