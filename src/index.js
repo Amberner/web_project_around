@@ -22,12 +22,12 @@ const validationProfile = new Validation({
 validationProfile.enableValidation();
 
 const validationProfileAtavar = new Validation({
-  formSelector: ".popup__edit-form",
-  inputSelector: ".popup_edit-input",
-  submitButtonSelector: ".popup__edit-button",
-  buttonError: ".popup__edit-button_error",
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  buttonError: ".popup__button_error",
   inputErrorClass: ".popups__input_error",
-}, document.querySelector(".popup__edit-form"));
+}, document.querySelector(".popup__form"));
 
 validationProfileAtavar.enableValidation();
 
@@ -229,7 +229,7 @@ const handleSubmitFormAvatar = (formData) => {
   }
 };
 
-const popupFormAvatar = new PopupWithForm(handleSubmitFormAvatar, ".popup__edit", ".popup__edit-form");
+const popupFormAvatar = new PopupWithForm(handleSubmitFormAvatar, ".popup", ".popup__form");
 
 //------------------------------- Popup das Imagens --------------------------------------------------------
 const popupWithImage = new PopupWithImage(".image");

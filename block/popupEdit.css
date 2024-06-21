@@ -144,7 +144,7 @@
     opacity: 0.5;
 }
 
-.popup__edit{
+.popup{
     visibility: hidden;
     position: fixed;
     z-index: 1;
@@ -158,13 +158,13 @@
     transition: all 0.3s ease;
 }
 
-.popup__edit.fade{
+.popup.fade{
     visibility: visible;
     opacity: 1;
     transition: all 0.3s ease;
 }
 
-.popup__edit-close{
+.popup__close{
     position: absolute;
     background-image: url(/vendor/images/comprimir/CloseIcon.png);
     width: 40px;
@@ -176,11 +176,11 @@
     transition: all ease .3s;
 }
 
-.popup__edit-close:hover{
+.popup__close:hover{
     opacity: .65;
 }
 
-.popup__edit-position{
+.popup__position{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -188,7 +188,7 @@
     z-index: 3;
 }
 
-.popup__edit-form{
+.popup__form{
     border-radius: 10px;
     background-color: #FFF;
     width: 430px;
@@ -198,7 +198,7 @@
     flex-direction: column;
 }
 
-.popup__edit-title{
+.popup__title{
     color: #000;
     font-family: Inter;
     font-size: 1.5rem;
@@ -208,7 +208,7 @@
     margin: 34px auto 54px 36px;
 }
 
-.popup_edit-input{
+.popup__input{
     color: #000;
     font-family: Inter;
     font-size: 0.875rem;
@@ -222,15 +222,15 @@
     width: 358px;
 }
 
-.popup_edit-input:focus{
+.popup__input:focus{
     outline: none;
 }
 
-.popup_edit-input:last-of-type{
+.popup__input:last-of-type{
     margin-top: 30px;
 }
 
-.popup__edit-button{
+.popup__button{
     margin: 0 auto;
     margin-top: 26px;
     width: 358px;
@@ -248,7 +248,7 @@
     transition: all ease .3s;
 }
 
-.popup__edit-button_error{
+.popup__button_error{
     bottom: desabled;
     opacity: 0.5;
     cursor: auto;
@@ -256,7 +256,7 @@
     margin-bottom: auto;
 }
 
-.popup__edit-button_error:hover{
+.popup__button_error:hover{
     opacity: 0.5;
 }
 
@@ -270,7 +270,7 @@
         right: -35px;
     }
 
-    .popup__edit-close{
+    .popup__close{
         height: 30px;
         width: 30px;
         top: -40px;
@@ -284,7 +284,7 @@
         height: 322px;
     }
     
-    .popup__edit-form{
+    .popup__form{
         width: 282px;
         height: 322px;
     }
@@ -294,7 +294,7 @@
         font-size: 1.125rem;
     }
 
-    .popup__edit-title{
+    .popup__title{
         margin: 25px auto 0 22px;
         font-size: 1.125rem;
     }
@@ -321,7 +321,7 @@
         font-size: 0.875rem;
     }
 
-    .popup__edit-button{
+    .popup__button{
         margin-top: 46px;
         margin-bottom: 25px;
         width: 238px;
@@ -336,7 +336,7 @@
         right: 0;
     }
 
-    .popup__edit-close{
+    .popup__close{
         width: 26px;
         height: 26px;
         top: -60px;
