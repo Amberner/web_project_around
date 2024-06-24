@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>around</title>
+  <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+  <body>
+    <main>
+        <header>
+            <div class="logo">
+              <img
+              class="logo__image" 
+              src="4101d18f912db55048c0.png" 
+              alt="logo da pagina">
+              <div class="logo__line"></div>  
+            </div>          
+        </header>
+        
+        <section class="profile">
+            <div class="profile__area">
+              <div class="profile__avatar-edit ">
+                  <img
+                  class="profile__avatar" 
+                  src="#" 
+                  alt="imagem do avatar">
+              </div>
+                <div id="openButton" class="profile__info">
+                    <h1 class="profile__name"></h1>
+                    <button class="profile__button"></button>
+                    <p class="profile__description"></p>
+                </div>
+                <div class="profile__photo">
+                    <button class="profile__card-create">&#43;</button>
+                  </div> 
+            </div>            
+        </section>
+
+        <template class="places_card_template" id="placesCardsTemplate">
+          <div class="places__card" data-card-id="#">
+            <div class="places__element">
+              <div class="places__button_delete" id="deleteCard"></div>
+              <img
+              class="places__image"
+              src="#"
+              alt="algum lugar">
+              <div class="places__item">  
+                <h2 class="places__title"></h2>
+                <button class="places__button"></button>
+                <span class="places__like-counter"></span>
+              </div>  
+                </div>    
+            </div>
+        </template>
+        
+        <section class="places">
+        </section>
+
+        <footer class="footer">
+            <h3 class="footer__text"> &copy; 2021 Around The U.S.</h3>
+        </footer>
+    </main>  
+    
+    <div class="popups" id="popups">
+      <div class="popups__position">
+        <div class="popups__close" id="closeButton"></div>
+        <form class="popups__form" novalidate>
+          <h2 class="popups__title">Editar Perfil</h2>
+          <input 
+            type="text"
+            class="popups__input"
+            id="inputNamePopup"
+            value=""
+            name="profile__name"
+            placeholder="Seu Nome"
+            minlength="2"
+            maxlength="40"
+            required>
+            <p class="popups__form-error"></p>
+          <input 
+            type="text"
+            class="popups__input"
+            id="inputDescriptionPopup"
+            value=""
+            name="profile__description"
+            placeholder="O que Você é?"
+            minlength="2"
+            maxlength="200"
+            required>
+            <p class=" popups__form-error"></p>
+          <button 
+            id="saveButtonPopup"
+            type="submit" 
+            class="popups__form-submit" 
+            value="save">Salvar</button>
+        </form>
+      </div>  
+    </div> 
+
+    <div class="popup popup_type_edit">
+      <div class="popup__position popup__position_type_edit">
+        <div class="popup__close popup__close_type_edit" id="closeButtonEdit"></div>
+        <form class="popup__form popup__form_type_edit" novalidate>
+          <h2 class="popup__title popup__title_type_edit">Alterar a foto do perfil</h2>
+          <input
+            type="url"
+            name="profile__avatar"
+            class="popup__input popup__input_type_edit"
+            id="inputEditPhoto"
+            placeholder="adicione a url da sua foto"
+            required>
+          <p class="popup__error popup__error_type_edit"></p>
+          <button 
+          id="saveButtonAvatar"
+          class="popup__button popup__button_type_edit">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="popup-cards">
+      <div class="popup-cards__position">
+        <div class="popup-cards__close" id="closeButtonCards"></div>
+        <form class="popup-cards__form" novalidate>
+          <h2 class="popup-cards__title">Novo Local</h2>
+          <input
+            type="text"
+            class="popup-cards__input"
+            id="inputCardTitle"
+            name="profile__card_name"
+            placeholder="Título"
+            minlength="2"
+            maxlength="200"
+            required>
+          <p class="popup-cards__error"></p>
+          <input 
+            type="url"
+            class="popup-cards__input"
+            id="inputCardUrl"
+            name="profile__card_url"
+            placeholder="Link da Imagem"
+            required>
+          <p class="popup-cards__error"></p>
+          <button 
+            id="saveButtonCard"
+            type="submit"
+            class="popup-cards__submit">Criar</button>
+        </form>
+      </div>
+    </div>
+  
+    <div class="popup-confirm">
+      <div class="popup-confirm__position">
+        <div class="popup-confirm__close" id="closeButtonDelete"></div>
+          <form class="popup-confirm__form">
+            <h2 class="popup-confirm__title">Tem certeza?</h2>
+            <button
+            id="deleteButtonCardConfirm"
+            class="popup-confirm__delete-button">Sim</button>
+          </form>
+      </div>
+    </div>
+
+    <div class="image">
+      <div class="image__position">
+        <img src="#" class="image__full" alt="Foi mal, não conseguimos achar sua foto">
+        <h4 class="image__subtitle"></h4>
+        <div class="image__close"></div>
+      </div>
+    </div>
+  </body>
+</html> 
